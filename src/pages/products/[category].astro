@@ -5,6 +5,8 @@ import Footer from '../../components/Footer.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL;
+
 export async function getStaticPaths() {
   const allProducts = await getCollection('products');
 
@@ -28,22 +30,22 @@ const categoryInfo: Record<string, { title: string; description: string; image: 
   'everyday-gourmet': {
     title: 'Everyday Gourmet',
     description: 'Premium dry fruits perfect for daily snacking and healthy living',
-    image: '/images/collections/everyday-gourmet.jpg',
+    image: `${base}/images/collections/everyday-gourmet.jpg`,
   },
   'jar-collection': {
     title: 'Jar Collection',
     description: 'Beautifully packaged products in elegant reusable glass jars',
-    image: '/images/collections/jar-collection.jpg',
+    image: `${base}/images/collections/jar-collection.jpg`,
   },
   'signature-collection': {
     title: 'Signature Collection',
     description: 'Our finest curated blends for the most discerning tastes',
-    image: '/images/collections/signature-collection.jpg',
+    image: `${base}/images/collections/signature-collection.jpg`,
   },
   'festive-gifting': {
     title: 'Festive Gifting',
     description: 'Thoughtfully crafted gift boxes for special occasions and celebrations',
-    image: '/images/collections/festive-gifting.jpg',
+    image: `${base}/images/collections/festive-gifting.jpg`,
   },
 };
 

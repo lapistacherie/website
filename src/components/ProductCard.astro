@@ -21,11 +21,11 @@ const categoryLabels: Record<string, string> = {
 };
 
 // Handle image path - if it starts with /, prefix with base, otherwise use as is
-const imageSrc = image?.startsWith('/') ? `${base}${image.slice(1)}` : image;
+const imageSrc = image?.startsWith('/') ? `${base}/${image.slice(1)}` : image;
 ---
 
 <article class="bg-white rounded-lg overflow-hidden border border-[#D4AF37]/30 shadow-sm hover:shadow-[0_8px_30px_rgb(212,175,55,0.15)] hover:border-[#D4AF37] transition-all duration-300">
-  <a href={`${base}products/${category}/${slug}`} class="block">
+  <a href={`${base}/products/${category}/${slug}`} class="block">
     <!-- Product Image -->
     <div class="relative aspect-square bg-gray-200">
       {imageSrc ? (

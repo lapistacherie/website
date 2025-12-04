@@ -1,4 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL;
+
 const slides = [
   {
     title: "Premium Dry Fruits & Nuts",
@@ -32,7 +34,7 @@ const slides = [
           <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30 z-10"></div>
           <div
             class="w-full h-full bg-cover bg-center"
-            style={`background-image: url('${slide.image}'); background-color: #39441E;`}
+            style={`background-image: url('${base}/${slide.image}'); background-color: #39441E;`}
           ></div>
           <div class="absolute inset-0 z-20 flex items-center">
             <div class="container mx-auto px-4 max-w-7xl">
@@ -57,8 +59,8 @@ const slides = [
     </div>
 
     <!-- Navigation buttons -->
-    <div class="swiper-button-next text-white"></div>
-    <div class="swiper-button-prev text-white"></div>
+    <!-- <div class="swiper-button-next text-white"></div> -->
+    <!-- <div class="swiper-button-prev text-white"></div> -->
 
     <!-- Pagination -->
     <div class="swiper-pagination"></div>
@@ -76,7 +78,7 @@ const slides = [
     modules: [Navigation, Pagination, Autoplay],
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 3000,
       disableOnInteraction: false,
     },
     navigation: {

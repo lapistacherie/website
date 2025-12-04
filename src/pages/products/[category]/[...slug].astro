@@ -61,9 +61,9 @@ const hasStock = product.data.variants
       <nav class="mb-8 text-sm text-gray-600">
         <a href={base} class="hover:text-[#39441E]">Home</a>
         <span class="mx-2">/</span>
-        <a href={`${base}products`} class="hover:text-[#39441E]">Products</a>
+        <a href={`${base}/products`} class="hover:text-[#39441E]">Products</a>
         <span class="mx-2">/</span>
-        <a href={`${base}products/${product.data.category}`} class="hover:text-[#39441E]">
+        <a href={`${base}/products/${product.data.category}`} class="hover:text-[#39441E]">
           {product.data.category}
         </a>
         <span class="mx-2">/</span>
@@ -78,7 +78,7 @@ const hasStock = product.data.variants
           <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
             <img
               id="main-image"
-              src={`${base}${product.data.images[0].slice(1)}`}
+              src={`${base}/${product.data.images[0].slice(1)}`}
               alt={product.data.title}
               class="w-full h-full object-cover"
             />
@@ -90,10 +90,10 @@ const hasStock = product.data.variants
               {product.data.images.map((image, index) => (
                 <button
                   class="thumbnail-btn aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 border-transparent hover:border-[#39441E] transition-colors focus:outline-none focus:border-[#39441E]"
-                  data-image={`${base}${image.slice(1)}`}
+                  data-image={`${base}/${image.slice(1)}`}
                 >
                   <img
-                    src={`${base}${image.slice(1)}`}
+                    src={`${base}/${image.slice(1)}`}
                     alt={`${product.data.title} - View ${index + 1}`}
                     class="w-full h-full object-cover"
                   />
