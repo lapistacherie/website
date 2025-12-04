@@ -1,0 +1,137 @@
+---
+const navItems = [
+  { name: 'Home', href: '/' },
+  {
+    name: 'Our Products',
+    href: '/products',
+    dropdown: [
+      { name: 'Everyday Gourmet', href: '/products/everyday-gourmet' },
+      { name: 'Jar Collection', href: '/products/jar-collection' },
+      { name: 'Signature Collection', href: '/products/signature-collection' },
+      { name: 'Festive Gifting', href: '/products/festive-gifting' },
+      { name: 'View All Products', href: '/products' },
+    ]
+  },
+  { name: 'About Us', href: '/about' },
+  { name: 'Personalised Gifting', href: '/personalised-gifting' },
+  { name: 'Contact Us', href: '/contact' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white shadow-md">
+  <nav class="container mx-auto px-4 py-4 max-w-7xl">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img
+          src="/images/logo.png"
+          alt="La Pistacherie"
+          class="h-12 md:h-14 w-auto"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-6">
+        <ul class="flex space-x-8 items-center">
+          {navItems.map((item) => (
+            <li class="relative group">
+              <a
+                href={item.href}
+                class="text-gray-700 hover:text-[#39441E] transition-colors font-medium"
+              >
+                {item.name}
+              </a>
+
+              {item.dropdown && (
+                <div class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <ul class="py-2">
+                    {item.dropdown.map((subItem) => (
+                      <li>
+                        <a
+                          href={subItem.href}
+                          class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#39441E] transition-colors"
+                        >
+                          {subItem.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <!-- Search Icon -->
+        <a
+          href="/search"
+          class="text-gray-700 hover:text-[#39441E] transition-colors"
+          aria-label="Search"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden text-gray-700 hover:text-[#39441E]"
+        aria-label="Toggle mobile menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4">
+      <ul class="space-y-2">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="block py-2 text-gray-700 hover:text-[#39441E] transition-colors font-medium"
+            >
+              {item.name}
+            </a>
+            {item.dropdown && (
+              <ul class="pl-4 space-y-1 mt-1">
+                {item.dropdown.map((subItem) => (
+                  <li>
+                    <a
+                      href={subItem.href}
+                      class="block py-1 text-sm text-gray-600 hover:text-[#39441E] transition-colors"
+                    >
+                      {subItem.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+        <li>
+          <a
+            href="/search"
+            class="block py-2 text-gray-700 hover:text-[#39441E] transition-colors font-medium"
+          >
+            Search
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

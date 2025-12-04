@@ -1,0 +1,388 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('products');
+
+  return allProducts.map(product => ({
+    params: {
+      category: product.data.category,
+      slug: product.slug,
+    },
+    props: { product },
+  }));
+}
+
+interface Props {
+  product: CollectionEntry<'products'>;
+}
+
+const { product } = Astro.props;
+const { Content } = await product.render();
+
+// Get related products from the same category
+const allProducts = await getCollection('products');
+const relatedProducts = allProducts
+  .filter(p =>
+    p.data.category === product.data.category &&
+    p.slug !== product.slug
+  )
+  .slice(0, 4);
+
+// Generate initial WhatsApp URL
+const whatsappNumber = "918779673085";
+const initialVariant = product.data.variants ? product.data.variants[0].size : product.data.weight || '';
+const variantText = initialVariant ? ` (${initialVariant})` : '';
+const initialMessage = `Hi! I would like to order *${product.data.title}${variantText}*.\n\nCould you please share the availability and delivery details?\n\nThank you!`;
+const initialWhatsAppUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(initialMessage)}`;
+
+// Check if product has any stock available
+const hasStock = product.data.variants
+  ? product.data.variants.some(v => v.inStock)
+  : product.data.inStock;
+---
+
+<Layout
+  title={`${product.data.title} - La Pistacherie`}
+  description={product.data.description}
+>
+  <Header />
+
+  <main class="py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <!-- Breadcrumbs -->
+      <nav class="mb-8 text-sm text-gray-600">
+        <a href="/" class="hover:text-[#39441E]">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/products" class="hover:text-[#39441E]">Products</a>
+        <span class="mx-2">/</span>
+        <a href={`/products/${product.data.category}`} class="hover:text-[#39441E]">
+          {product.data.category}
+        </a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-900">{product.data.title}</span>
+      </nav>
+
+      <!-- Product Details -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <!-- Product Image Gallery -->
+        <div class="space-y-4">
+          <!-- Main Image -->
+          <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+            <img
+              id="main-image"
+              src={product.data.images[0]}
+              alt={product.data.title}
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Thumbnail Gallery -->
+          {product.data.images.length > 1 && (
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {product.data.images.map((image, index) => (
+                <button
+                  class="thumbnail-btn aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 border-transparent hover:border-[#39441E] transition-colors focus:outline-none focus:border-[#39441E]"
+                  data-image={image}
+                >
+                  <img
+                    src={image}
+                    alt={`${product.data.title} - View ${index + 1}`}
+                    class="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <!-- Product Info -->
+        <div>
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">
+            {product.data.title}
+          </h1>
+
+          <div id="price-display" class="mb-6">
+            <span class="text-4xl font-bold text-[#39441E]">
+              ₹<span id="current-price">{product.data.price}</span>
+            </span>
+          </div>
+
+          <p class="text-lg text-gray-700 mb-6">
+            {product.data.description}
+          </p>
+
+          <!-- Variants Selector -->
+          {product.data.variants && product.data.variants.length > 0 && (
+            <div class="mb-6">
+              <h3 class="text-lg font-semibold mb-3">Size:</h3>
+              <div class="space-y-2">
+                {product.data.variants.map((variant, index) => (
+                  <label
+                    class="flex items-center justify-between p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 transition-colors variant-option"
+                  >
+                    <div class="flex items-center">
+                      <input
+                        type="radio"
+                        name="variant"
+                        value={index}
+                        data-price={variant.price}
+                        data-weight={variant.weight}
+                        checked={index === 0}
+                        class="w-4 h-4 text-[#39441E] border-gray-300 focus:ring-[#39441E]"
+                      />
+                      <span class="ml-3 font-medium text-gray-900">{variant.size}</span>
+                    </div>
+                    <span class="font-semibold text-gray-900">₹{variant.price}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {!product.data.variants && product.data.inStock ? (
+            <div class="flex items-center gap-2 text-green-600 mb-6">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="font-medium">In Stock</span>
+            </div>
+          ) : !product.data.variants && !product.data.inStock ? (
+            <div class="flex items-center gap-2 text-red-600 mb-6">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="font-medium">Out of Stock</span>
+            </div>
+          ) : null}
+
+          {product.data.tags && product.data.tags.length > 0 && (
+            <div class="mb-6">
+              <div class="flex flex-wrap gap-2">
+                {product.data.tags.map(tag => (
+                  <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {hasStock ? (
+            <a
+              id="whatsapp-order-btn"
+              href={initialWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white text-center px-8 py-4 rounded-md font-semibold hover:bg-[#20BA5A] transition-colors"
+            >
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+              Order via WhatsApp
+            </a>
+          ) : (
+            <div class="flex items-center justify-center gap-2 w-full bg-gray-400 text-white text-center px-8 py-4 rounded-md font-semibold cursor-not-allowed">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+              </svg>
+              Currently Out of Stock
+            </div>
+          )}
+
+          <!-- Product Description -->
+          <div class="mt-8 product-content">
+            <Content />
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      {relatedProducts.length > 0 && (
+        <section>
+          <h2 class="text-3xl font-bold text-gray-900 mb-8">
+            More from this collection
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {relatedProducts.map((relatedProduct) => (
+              <ProductCard
+                title={relatedProduct.data.title}
+                description={relatedProduct.data.description}
+                price={relatedProduct.data.price}
+                category={relatedProduct.data.category}
+                slug={relatedProduct.slug}
+                image={relatedProduct.data.images[0]}
+                featured={relatedProduct.data.featured}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script define:vars={{ productTitle: product.data.title }}>
+  // Image gallery functionality
+  const mainImage = document.getElementById('main-image') as HTMLImageElement;
+  const thumbnailBtns = document.querySelectorAll('.thumbnail-btn');
+
+  thumbnailBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const imageUrl = btn.getAttribute('data-image');
+      if (imageUrl && mainImage) {
+        mainImage.src = imageUrl;
+
+        // Update active state
+        thumbnailBtns.forEach(b => b.classList.remove('border-[#39441E]'));
+        btn.classList.add('border-[#39441E]');
+      }
+    });
+  });
+
+  // Set first thumbnail as active
+  if (thumbnailBtns.length > 0) {
+    thumbnailBtns[0].classList.add('border-[#39441E]');
+  }
+
+  // WhatsApp order link functionality
+  const whatsappBtn = document.getElementById('whatsapp-order-btn') as HTMLAnchorElement;
+  const whatsappNumber = "918779673085";
+
+  function updateWhatsAppLink() {
+    const selectedVariant = document.querySelector('input[name="variant"]:checked') as HTMLInputElement;
+    let variantText = '';
+
+    if (selectedVariant) {
+      const variantLabel = selectedVariant.parentElement?.querySelector('span')?.textContent;
+      if (variantLabel) {
+        variantText = ` (${variantLabel})`;
+      }
+    }
+
+    const message = `Hi! I would like to order *${productTitle}${variantText}*.\n\nCould you please share the availability and delivery details?\n\nThank you!`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    if (whatsappBtn) {
+      whatsappBtn.href = whatsappUrl;
+    }
+  }
+
+  // Variant selector functionality
+  const variantInputs = document.querySelectorAll('input[name="variant"]');
+  const currentPriceEl = document.getElementById('current-price');
+
+  variantInputs.forEach((input) => {
+    input.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement;
+      const price = target.getAttribute('data-price');
+
+      if (price && currentPriceEl) {
+        currentPriceEl.textContent = price;
+      }
+
+      // Update visual selection
+      document.querySelectorAll('.variant-option').forEach(option => {
+        option.classList.remove('border-gray-400', 'bg-gray-50');
+        option.classList.add('border-gray-200');
+      });
+
+      const parentLabel = target.closest('.variant-option');
+      if (parentLabel) {
+        parentLabel.classList.remove('border-gray-200');
+        parentLabel.classList.add('border-gray-400', 'bg-gray-50');
+      }
+
+      // Update WhatsApp link with new variant
+      updateWhatsAppLink();
+    });
+  });
+
+  // Set initial selected variant styling
+  const selectedVariant = document.querySelector('input[name="variant"]:checked');
+  if (selectedVariant) {
+    const parentLabel = selectedVariant.closest('.variant-option');
+    if (parentLabel) {
+      parentLabel.classList.add('border-gray-400', 'bg-gray-50');
+      parentLabel.classList.remove('border-gray-200');
+    }
+  }
+
+  // Initialize WhatsApp link
+  updateWhatsAppLink();
+</script>
+
+<style>
+  /* Product content typography */
+  .product-content {
+    color: #1f2937;
+  }
+
+  .product-content :global(p) {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-content :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-content :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .product-content :global(ul),
+  .product-content :global(ol) {
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    padding-left: 1.5rem;
+  }
+
+  .product-content :global(ul) {
+    list-style-type: disc;
+  }
+
+  .product-content :global(ol) {
+    list-style-type: decimal;
+  }
+
+  .product-content :global(li) {
+    color: #374151;
+    line-height: 1.75;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-content :global(strong) {
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .product-content :global(em) {
+    font-style: italic;
+  }
+
+  .product-content :global(a) {
+    color: #39441E;
+    text-decoration: underline;
+  }
+
+  .product-content :global(a:hover) {
+    color: #4A5525;
+  }
+</style>

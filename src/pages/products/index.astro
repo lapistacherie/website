@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProducts = await getCollection('products');
+
+// Group products by category
+const productsByCategory = allProducts.reduce((acc, product) => {
+  const category = product.data.category;
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  acc[category].push(product);
+  return acc;
+}, {} as Record<string, typeof allProducts>);
+
+const categoryLabels: Record<string, string> = {
+  'everyday-gourmet': 'Everyday Gourmet',
+  'jar-collection': 'Jar Collection',
+  'signature-collection': 'Signature Collection',
+  'festive-gifting': 'Festive Gifting',
+};
+---
+
+<Layout title="All Products - La Pistacherie">
+  <Header />
+
+  <main class="py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Our Products
+        </h1>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Explore our complete collection of premium dry fruits and nuts
+        </p>
+      </div>
+
+      <!-- All Products Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {allProducts.map((product) => (
+          <ProductCard
+            title={product.data.title}
+            description={product.data.description}
+            price={product.data.price}
+            category={product.data.category}
+            slug={product.slug}
+            image={product.data.images[0]}
+            featured={product.data.featured}
+          />
+        ))}
+      </div>
+
+      <!-- Products by Category -->
+      <div class="space-y-16">
+        {Object.entries(productsByCategory).map(([category, products]) => (
+          <section>
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-3xl font-bold text-gray-900">
+                {categoryLabels[category] || category}
+              </h2>
+              <a
+                href={`/products/${category}`}
+                class="text-[#39441E] font-semibold hover:underline"
+              >
+                View All →
+              </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {products.slice(0, 4).map((product) => (
+                <ProductCard
+                  title={product.data.title}
+                  description={product.data.description}
+                  price={product.data.price}
+                  category={product.data.category}
+                  slug={product.slug}
+                  image={product.data.images[0]}
+                  featured={product.data.featured}
+                />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

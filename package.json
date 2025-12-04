@@ -1,0 +1,21 @@
+{
+  "name": "lapistacherie-static",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && npm run postbuild",
+    "postbuild": "pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@pagefind/default-ui": "^1.4.0",
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "^5.16.1",
+    "pagefind": "^1.4.0",
+    "swiper": "^12.0.3",
+    "tailwindcss": "^4.1.17"
+  }
+}

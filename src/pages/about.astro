@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About Us - La Pistacherie">
+  <Header />
+
+  <main>
+    <!-- Hero Section with Banner Image -->
+    <section class="relative h-64 md:h-80 lg:h-96 overflow-hidden">
+      <img
+        src="/images/about-hero.jpg"
+        alt="About La Pistacherie"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end">
+        <div class="container mx-auto px-4 max-w-7xl pb-8 md:pb-12">
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
+            About Us
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="prose prose-lg max-w-none">
+          <p class="text-lg text-gray-700 mb-6">
+            Step into the world of La Pistacherie, a luxury gifting venture founded by Jegna J Dedhiaa. Fueled by a passion for redefining healthy snacking and enhancing the art of gourmet gifting, this venture has flourished from its unwavering commitment to fitness and well-being.
+          </p>
+
+          <p class="text-lg text-gray-700 mb-6">
+            At La Pistacherie, we meticulously source the finest dry fruits, nuts, berries, and seeds, chosen for their exceptional nutritional richness and captivating flavours. Our team curates a selection of ingredients from across the globe to create handcrafted artisanal products with exotic flavours, harmonizing them into exquisite blends and pairings that dance together seamlessly. What's even more remarkable is the opportunity to bestow good health upon your loved ones with our array of gourmet products elegantly presented in luxurious gift hampers.
+          </p>
+
+          <p class="text-lg text-gray-700 mb-6">
+            Our products steer clear of preservatives and additives, assuring that when you select a La Pistacherie creation, you're choosing not only delightful flavours but also unmatched quality.
+          </p>
+
+          <p class="text-2xl font-semibold text-gray-900 mt-8">
+            Bon Appétit!
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

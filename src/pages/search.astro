@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { getCollection } from 'astro:content';
+
+// Get all products for client-side search
+const allProducts = await getCollection('products');
+---
+
+<Layout title="Search - La Pistacherie">
+  <Header />
+
+  <main class="py-16 min-h-screen">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <h1 class="text-4xl font-bold text-center mb-8">Search Products</h1>
+
+      <!-- Search Input -->
+      <div class="max-w-2xl mx-auto mb-12">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for products..."
+          class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#39441E] focus:border-transparent outline-none"
+        />
+      </div>
+
+      <!-- Search Results -->
+      <div id="search-results">
+        <p class="text-center text-gray-500 text-lg">
+          Enter a search term to find products
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script define:vars={{ allProducts }}>
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+
+  function renderResults(products) {
+    if (products.length === 0) {
+      searchResults.innerHTML = `
+        <p class="text-center text-gray-500 text-lg">
+          No products found matching your search
+        </p>
+      `;
+      return;
+    }
+
+    const resultsHTML = `
+      <div class="mb-6">
+        <p class="text-gray-600 text-center">
+          Found ${products.length} product${products.length === 1 ? '' : 's'}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        ${products.map(product => `
+          <a href="/products/${product.data.category}/${product.slug}" class="group bg-white rounded-lg overflow-hidden border border-[#D4AF37]/30 shadow-sm hover:shadow-[0_8px_30px_rgb(212,175,55,0.15)] hover:border-[#D4AF37] transition-all duration-300">
+            ${product.data.featured ? '<span class="absolute top-2 right-2 bg-[#39441E] text-white text-xs px-2 py-1 rounded z-10">Featured</span>' : ''}
+            <div class="aspect-square relative overflow-hidden">
+              <img
+                src="${product.data.images[0]}"
+                alt="${product.data.title}"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-[#39441E] transition-colors">
+                ${product.data.title}
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                ${product.data.description}
+              </p>
+              <div class="flex items-baseline justify-between">
+                <span class="text-2xl font-bold text-gray-900">
+                  ${product.data.price}
+                </span>
+                ${product.data.originalPrice ? `
+                  <span class="text-sm text-gray-500 line-through">
+                    ${product.data.originalPrice}
+                  </span>
+                ` : ''}
+              </div>
+            </div>
+          </a>
+        `).join('')}
+      </div>
+    `;
+    searchResults.innerHTML = resultsHTML;
+  }
+
+  function performSearch(query) {
+    if (!query || query.trim() === '') {
+      searchResults.innerHTML = `
+        <p class="text-center text-gray-500 text-lg">
+          Enter a search term to find products
+        </p>
+      `;
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase().trim();
+    const filtered = allProducts.filter(product => {
+      const title = product.data.title.toLowerCase();
+      const description = product.data.description.toLowerCase();
+      const category = product.data.category.toLowerCase();
+
+      return title.includes(lowerQuery) ||
+             description.includes(lowerQuery) ||
+             category.includes(lowerQuery);
+    });
+
+    renderResults(filtered);
+  }
+
+  // Search on input
+  let debounceTimer;
+  searchInput.addEventListener('input', (e) => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      performSearch(e.target.value);
+    }, 300);
+  });
+
+  // Check for URL search parameter on load
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('q');
+    if (searchQuery) {
+      searchInput.value = searchQuery;
+      performSearch(searchQuery);
+    }
+  });
+</script>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

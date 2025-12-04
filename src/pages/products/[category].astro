@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('products');
+
+  const categories = ['everyday-gourmet', 'jar-collection', 'signature-collection', 'festive-gifting'];
+
+  return categories.map(category => {
+    const categoryProducts = allProducts.filter(
+      product => product.data.category === category
+    );
+
+    return {
+      params: { category },
+      props: { products: categoryProducts, category },
+    };
+  });
+}
+
+const { products, category } = Astro.props;
+
+const categoryInfo: Record<string, { title: string; description: string; image: string }> = {
+  'everyday-gourmet': {
+    title: 'Everyday Gourmet',
+    description: 'Premium dry fruits perfect for daily snacking and healthy living',
+    image: '/images/collections/everyday-gourmet.jpg',
+  },
+  'jar-collection': {
+    title: 'Jar Collection',
+    description: 'Beautifully packaged products in elegant reusable glass jars',
+    image: '/images/collections/jar-collection.jpg',
+  },
+  'signature-collection': {
+    title: 'Signature Collection',
+    description: 'Our finest curated blends for the most discerning tastes',
+    image: '/images/collections/signature-collection.jpg',
+  },
+  'festive-gifting': {
+    title: 'Festive Gifting',
+    description: 'Thoughtfully crafted gift boxes for special occasions and celebrations',
+    image: '/images/collections/festive-gifting.jpg',
+  },
+};
+
+const info = categoryInfo[category] || { title: category, description: '', image: '' };
+---
+
+<Layout title={`${info.title} - La Pistacherie`}>
+  <Header />
+
+  <main>
+    <!-- Category Hero Banner -->
+    {info.image && (
+      <section class="relative h-64 md:h-80 lg:h-96 overflow-hidden">
+        <img
+          src={info.image}
+          alt={info.title}
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end">
+          <div class="container mx-auto px-4 max-w-7xl pb-8 md:pb-12">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3">
+              {info.title}
+            </h1>
+            <p class="text-white/90 text-lg md:text-xl max-w-2xl">
+              {info.description}
+            </p>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Products Grid -->
+    <div class="py-16">
+      <div class="container mx-auto px-4 max-w-7xl">
+
+      {products.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <ProductCard
+              title={product.data.title}
+              description={product.data.description}
+              price={product.data.price}
+              category={product.data.category}
+              slug={product.slug}
+              image={product.data.images[0]}
+              featured={product.data.featured}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <p class="text-gray-500 text-lg">
+            No products available in this category yet.
+          </p>
+          <a
+            href="/products"
+            class="inline-block mt-6 bg-[#39441E] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#003A15] transition-colors"
+          >
+            View All Products
+          </a>
+        </div>
+      )}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
