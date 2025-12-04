@@ -11,21 +11,26 @@ interface Props {
 
 const { title, description, price, category, slug, image, featured = false } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+
 const categoryLabels: Record<string, string> = {
   'everyday-gourmet': 'Everyday Gourmet',
   'jar-collection': 'Jar Collection',
   'signature-collection': 'Signature Collection',
   'festive-gifting': 'Festive Gifting',
 };
+
+// Handle image path - if it starts with /, prefix with base, otherwise use as is
+const imageSrc = image?.startsWith('/') ? `${base}${image.slice(1)}` : image;
 ---
 
 <article class="bg-white rounded-lg overflow-hidden border border-[#D4AF37]/30 shadow-sm hover:shadow-[0_8px_30px_rgb(212,175,55,0.15)] hover:border-[#D4AF37] transition-all duration-300">
-  <a href={`/products/${category}/${slug}`} class="block">
+  <a href={`${base}products/${category}/${slug}`} class="block">
     <!-- Product Image -->
     <div class="relative aspect-square bg-gray-200">
-      {image ? (
+      {imageSrc ? (
         <img
-          src={image}
+          src={imageSrc}
           alt={title}
           class="w-full h-full object-cover"
           loading="lazy"
