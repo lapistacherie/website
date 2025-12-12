@@ -24,8 +24,8 @@ const categoryLabels: Record<string, string> = {
 const imageSrc = image?.startsWith('/') ? `${base}/${image.slice(1)}` : image;
 ---
 
-<article class="bg-white rounded-lg overflow-hidden border border-[#D4AF37]/30 shadow-sm hover:shadow-[0_8px_30px_rgb(212,175,55,0.15)] hover:border-[#D4AF37] transition-all duration-300">
-  <a href={`${base}/products/${category}/${slug}`} class="block">
+<article class="bg-white flex rounded-lg overflow-hidden border border-[#D4AF37]/30 shadow-sm hover:shadow-[0_8px_30px_rgb(212,175,55,0.15)] hover:border-[#D4AF37] transition-all duration-300">
+  <a href={`${base}/products/${category}/${slug}`} class="flex flex-col">
     <!-- Product Image -->
     <div class="relative aspect-square bg-gray-200">
       {imageSrc ? (
@@ -44,23 +44,25 @@ const imageSrc = image?.startsWith('/') ? `${base}/${image.slice(1)}` : image;
       )}
 
       {featured && (
-        <span class="absolute top-2 right-2 bg-[#39441E] text-white text-xs px-2 py-1 rounded">
+        <span class="absolute top-2 right-2 bg-[#D4AF37] text-white text-xs px-2 py-1 rounded">
           Featured
         </span>
       )}
     </div>
 
     <!-- Product Info -->
-    <div class="p-4">
-      <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">
-        {categoryLabels[category] || category}
+    <div class="p-4 grow flex flex-col justify-between">
+      <div>
+        <div class="text-xs text-gray-400 font-medium uppercase tracking-widest mb-1">
+          {categoryLabels[category] || category}
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+          {title}
+        </h3>
+        <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+          {description}
+        </p>
       </div>
-      <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
-        {title}
-      </h3>
-      <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-        {description}
-      </p>
       <div class="flex items-center justify-between">
         <span class="text-2xl font-bold text-[#39441E]">
           ₹{price}
