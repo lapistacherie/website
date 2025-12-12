@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { CONTACT, SOCIAL_MEDIA } from '../constants';
 ---
 
 <Layout title="Contact Us - La Pistacherie">
@@ -124,8 +125,8 @@ import Footer from '../components/Footer.astro';
                 </div>
                 <div>
                   <h3 class="font-semibold text-lg mb-1">Email</h3>
-                  <p class="text-gray-600">info@lapistacherie.in</p>
-                  <p class="text-gray-600">orders@lapistacherie.in</p>
+                  <p class="text-gray-600">{CONTACT.email.info}</p>
+                  <p class="text-gray-600">{CONTACT.email.orders}</p>
                 </div>
               </div>
 
@@ -137,8 +138,8 @@ import Footer from '../components/Footer.astro';
                 </div>
                 <div>
                   <h3 class="font-semibold text-lg mb-1">Phone</h3>
-                  <p class="text-gray-600">+91-8779673085</p>
-                  <p class="text-gray-600">Mon-Sat: 9:00 AM - 6:00 PM IST</p>
+                  <p class="text-gray-600">{CONTACT.phone}</p>
+                  <p class="text-gray-600">{CONTACT.hours}</p>
                 </div>
               </div>
 
@@ -152,14 +153,14 @@ import Footer from '../components/Footer.astro';
                 <div>
                   <h3 class="font-semibold text-lg mb-1">Office Address</h3>
                   <p class="text-gray-600">
-                    VITALYF AGENCY<br />
-                    Off No. 113, Hammersmith Industrial Estate,<br />
-                    Narayan Pathare Marg, Off Sitladevi Temple Rd,<br />
-                    Mahim (W), Mumbai 400016,<br />
-                    Maharashtra, India
+                    {CONTACT.address.company}<br />
+                    {CONTACT.address.line1}<br />
+                    {CONTACT.address.line2}<br />
+                    {CONTACT.address.line3}<br />
+                    {CONTACT.address.line4}
                   </p>
                   <p class="text-gray-600 mt-2 text-sm">
-                    FSSAI No. 11523998001014
+                    FSSAI No. {CONTACT.fssai}
                   </p>
                 </div>
               </div>
@@ -173,7 +174,7 @@ import Footer from '../components/Footer.astro';
                 <div>
                   <h3 class="font-semibold text-lg mb-1">WhatsApp</h3>
                   <p class="text-gray-600">Quick responses via WhatsApp</p>
-                  <a href="https://wa.me/918779673085" class="text-[#39441E] hover:underline">
+                  <a href={`https://wa.me/${CONTACT.whatsapp}`} class="text-[#39441E] hover:underline">
                     Chat with us
                   </a>
                 </div>
@@ -185,7 +186,7 @@ import Footer from '../components/Footer.astro';
               <h3 class="font-semibold text-lg mb-4">Follow Us</h3>
               <div class="flex gap-4">
                 <a
-                  href="https://www.facebook.com/lapistacheriemumbai"
+                  href={SOCIAL_MEDIA.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="w-10 h-10 bg-[#39441E] rounded-full flex items-center justify-center text-white hover:bg-[#4A5525] transition-colors"
@@ -196,7 +197,7 @@ import Footer from '../components/Footer.astro';
                   </svg>
                 </a>
                 <a
-                  href="https://www.instagram.com/_lapistacherie_"
+                  href={SOCIAL_MEDIA.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="w-10 h-10 bg-[#39441E] rounded-full flex items-center justify-center text-white hover:bg-[#4A5525] transition-colors"

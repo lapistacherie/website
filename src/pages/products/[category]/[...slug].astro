@@ -4,6 +4,7 @@ import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import ProductCard from '../../../components/ProductCard.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { CONTACT } from '../../../constants';
 
 
 export async function getStaticPaths() {
@@ -37,11 +38,10 @@ const relatedProducts = allProducts
   .slice(0, 4);
 
 // Generate initial WhatsApp URL
-const whatsappNumber = "918779673085";
 const initialVariant = product.data.variants ? product.data.variants[0].size : product.data.weight || '';
 const variantText = initialVariant ? ` (${initialVariant})` : '';
 const initialMessage = `Hi! I would like to order *${product.data.title}${variantText}*.\n\nCould you please share the availability and delivery details?\n\nThank you!`;
-const initialWhatsAppUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(initialMessage)}`;
+const initialWhatsAppUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(initialMessage)}`;
 
 // Check if product has any stock available
 const hasStock = product.data.variants
@@ -231,7 +231,7 @@ const hasStock = product.data.variants
   <Footer />
 </Layout>
 
-<script define:vars={{ productTitle: product.data.title }}>
+<script define:vars={{ productTitle: product.data.title, whatsappNumber: CONTACT.whatsapp }}>
   // Image gallery functionality
   const mainImage = document.getElementById('main-image') as HTMLImageElement;
   const thumbnailBtns = document.querySelectorAll('.thumbnail-btn');
@@ -256,7 +256,6 @@ const hasStock = product.data.variants
 
   // WhatsApp order link functionality
   const whatsappBtn = document.getElementById('whatsapp-order-btn') as HTMLAnchorElement;
-  const whatsappNumber = "918779673085";
 
   function updateWhatsAppLink() {
     const selectedVariant = document.querySelector('input[name="variant"]:checked') as HTMLInputElement;
