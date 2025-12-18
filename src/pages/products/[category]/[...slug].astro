@@ -61,10 +61,14 @@ const variantImages = product.data.variants
   ? product.data.variants.map(v => v.image).filter(Boolean)
   : [];
 const thumbnailImages = product.data.images.filter(img => !variantImages.includes(img));
+
+// Build SEO keywords from tags
+const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
 ---
 
 <Layout
   title={`${product.data.title} - La Pistacherie`}
+  keywords={keywords}
 >
   <Header />
 
@@ -172,18 +176,6 @@ const thumbnailImages = product.data.images.filter(img => !variantImages.include
               <span class="font-medium">Out of Stock</span>
             </div>
           ) : null}
-
-          {product.data.tags && product.data.tags.length > 0 && (
-            <div class="mb-6">
-              <div class="flex flex-wrap gap-2">
-                {product.data.tags.map(tag => (
-                  <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
 
           {hasStock ? (
             <a

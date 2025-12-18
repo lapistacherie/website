@@ -5,9 +5,10 @@ import WhatsAppWidget from '../components/WhatsAppWidget.astro';
 interface Props {
   title: string;
   description?: string;
+  keywords?: string;
 }
 
-const { title, description = "La Pistacherie - Premium Dry Fruits and Nuts" } = Astro.props;
+const { title, description = "La Pistacherie - Premium Dry Fruits and Nuts", keywords } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,6 +16,7 @@ const { title, description = "La Pistacherie - Premium Dry Fruits and Nuts" } = 
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -28,6 +30,7 @@ const { title, description = "La Pistacherie - Premium Dry Fruits and Nuts" } = 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    {keywords && <meta property="article:tag" content={keywords} />}
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
