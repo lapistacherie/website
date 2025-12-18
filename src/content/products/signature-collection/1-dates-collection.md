@@ -7,6 +7,8 @@ images:
   - "dates-2.jpg"
   - "dates-3.jpg"
   - "dates-4.jpg"
+  - "simple-box.jpg"
+  - "medley2-2.jpg"
 featured: true
 inStock: true
 weight: "10 pcs"
