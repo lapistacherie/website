@@ -1,6 +1,5 @@
 ---
 title: "Mix Trail"
-description: "A scrumptious blend of finely roasted almonds and cashews, mixed with walnuts, cranberries, blueberries, pistachios and dried dates. Packed with essential nutrients and a quick energy booster"
 price: 460
 category: "everyday-gourmet"
 images:

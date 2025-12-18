@@ -1,6 +1,5 @@
 ---
 title: "Almonds: Premium Californian Almonds"
-description: "Highly nutritious almonds offering numerous health benefits. An excellent source of healthy fats, protein, fibre, vitamin, magnesium and other minerals"
 price: 640
 category: "everyday-gourmet"
 images:

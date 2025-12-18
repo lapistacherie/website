@@ -1,6 +1,5 @@
 ---
 title: "Cheese & Chilli Almond Cashew Mix"
-description: "Jar contains Californian Almonds and Indian Cashews, coated with powdered cheddar cheese and chilli powder. Freshly roasted in small batches. No added preservatives"
 price: 280
 category: "jar-collection"
 images:

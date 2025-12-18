@@ -39,13 +39,18 @@ const navItems = [
             <li class="relative group">
               <a
                 href={item.href}
-                class="text-gray-700 hover:text-[#39441E] transition-colors font-medium"
+                class="text-gray-700 hover:text-[#39441E] transition-colors font-medium flex items-center gap-1"
               >
                 {item.name}
+                {item.dropdown && (
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                )}
               </a>
 
               {item.dropdown && (
-                <div class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="absolute left-0 mt-2 w-56 bg-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1),0_0_0_1px_rgba(212,175,55,0.1)] rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <ul class="py-2">
                     {item.dropdown.map((subItem) => (
                       <li>
@@ -95,9 +100,14 @@ const navItems = [
           <li>
             <a
               href={item.href}
-              class="block py-2 text-gray-700 hover:text-[#39441E] transition-colors font-medium"
+              class="block py-2 text-gray-700 hover:text-[#39441E] transition-colors font-medium flex items-center gap-1"
             >
               {item.name}
+              {item.dropdown && (
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              )}
             </a>
             {item.dropdown && (
               <ul class="pl-4 space-y-1 mt-1">

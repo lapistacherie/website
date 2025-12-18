@@ -1,6 +1,5 @@
 ---
 title: "Medley Collection 1"
-description: "Savour the luscious and exotic flavour of Afghani Figs stuffed with roasted & salted almonds, apricot & raisins stuffed Walnuts and stuffed Premium Medjool Dates creating a harmonious medley of flavours"
 price: 870
 category: "signature-collection"
 images:

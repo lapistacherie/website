@@ -1,6 +1,5 @@
 ---
 title: "Mix Berries"
-description: "Jar contains Dried Whole Cranberries and Dried Blueberries. The tartness of the cranberries is mellowed by the sweetness of blueberries, creating a harmonious medley of flavours"
 price: 240
 category: "jar-collection"
 images:

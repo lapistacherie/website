@@ -1,6 +1,5 @@
 ---
 title: "Sweet and Spicy Trail Mix"
-description: "Jar contains Californian Almonds, Indian Cashews, Hazelnuts, Pecan Nuts and Pumpkin seeds flavoured with raw organic honey, Indian spices & rosemary sprigs. Freshly made in small batches"
 price: 280
 category: "jar-collection"
 images:

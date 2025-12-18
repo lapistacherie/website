@@ -1,6 +1,5 @@
 ---
 title: "Royal Gift Box 2"
-description: "This Royal Box wrapped beautifully in a rich satin fabric, is perfect to bestow your loved ones with good health at every special occasion"
 price: 1950
 category: "festive-gifting"
 images:

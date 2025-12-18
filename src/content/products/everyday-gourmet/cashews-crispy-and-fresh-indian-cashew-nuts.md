@@ -1,6 +1,5 @@
 ---
 title: "Cashews: Crispy and Fresh Indian Cashew Nuts"
-description: "Cashews offer an array of health benefits due to their nutrient-rich composition. An excellent source of healthy fats, proteins, dietary fibre, vitamins and essential minerals"
 price: 690
 category: "everyday-gourmet"
 images:

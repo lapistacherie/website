@@ -1,6 +1,5 @@
 ---
 title: "Walnut Collection"
-description: "Walnuts make for the tastiest all-rounder nut! Savour the luscious and exotic flavour of Chilean Walnuts stuffed with kesar, elaichi infused apricot & raisins, taking your taste buds on a sophisticated journey"
 price: 870
 category: "signature-collection"
 images:

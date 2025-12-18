@@ -1,6 +1,5 @@
 ---
 title: "Fig Collection"
-description: "Savour the luscious and exotic flavour of Afghani Figs stuffed with kesar infused roasted & salted almonds and pistachios & rose petals, taking your tastebuds on a sophisticated journey"
 price: 870
 category: "signature-collection"
 images:

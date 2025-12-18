@@ -1,6 +1,5 @@
 ---
 title: "Tower Set"
-description: "This extravagant Tower set is perfect for every special occasion and grandeur celebrations"
 price: 2590
 category: "festive-gifting"
 images:

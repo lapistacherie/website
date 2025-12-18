@@ -1,6 +1,5 @@
 ---
 title: "Cranberries"
-description: "Jar contains Dried Whole Cranberries. A rich source of several vitamins and minerals, especially vitamin C and Manganese. One of the highest contents of antioxidants"
 price: 190
 category: "jar-collection"
 images:

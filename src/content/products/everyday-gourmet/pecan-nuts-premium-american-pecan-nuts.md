@@ -1,6 +1,5 @@
 ---
 title: "Pecan Nuts: Premium American Pecan Nuts"
-description: "A good source of healthy fats, protein and fibre. Contains various vitamins and minerals, magnesium and zinc"
 price: 640
 category: "everyday-gourmet"
 images:

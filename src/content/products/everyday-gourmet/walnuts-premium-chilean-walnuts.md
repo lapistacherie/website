@@ -1,6 +1,5 @@
 ---
 title: "Walnuts: Premium Chilean Walnuts"
-description: "Full of rare and powerful antioxidants, walnuts are delicious, nutritious powerhouses that aid in improving both physical and mental health"
 price: 1090
 category: "everyday-gourmet"
 images:

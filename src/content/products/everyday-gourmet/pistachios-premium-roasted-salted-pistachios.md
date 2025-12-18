@@ -1,6 +1,5 @@
 ---
 title: "Pistachios: Premium Roasted & Salted Pistachios"
-description: "Middle Eastern nuts that are not only delicious but also highly nutritious. A good source of protein, healthy fats, fibre and various vitamins and minerals, particularly rich in antioxidants"
 price: 420
 category: "everyday-gourmet"
 images:

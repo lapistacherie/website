@@ -1,6 +1,5 @@
 ---
 title: "Blueberries"
-description: "Jar contains Dried Blueberries. A nutritional powerhouse offering an array of health benefits. Low in calories, high in fibre and rich in antioxidants"
 price: 290
 category: "jar-collection"
 images:

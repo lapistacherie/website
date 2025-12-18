@@ -1,6 +1,5 @@
 ---
 title: "Medley Collection 2"
-description: "Savour the luscious and exotic flavour of Afghani Figs stuffed with roasted & salted almonds and apricot & raisins stuffed Walnuts creating a harmonious medley of flavours"
 price: 1590
 category: "signature-collection"
 images:

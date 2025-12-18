@@ -1,6 +1,5 @@
 ---
 title: "Mamra Almonds: Premium Mamra Almonds"
-description: "An excellent source of healthy fats, proteins, fibre, vitamins and minerals. Rich in antioxidants"
 price: 1770
 category: "everyday-gourmet"
 images:

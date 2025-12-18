@@ -1,6 +1,5 @@
 ---
 title: "Date Collection"
-description: "Often referred to as the King of Dates, Medjool Dates are a prized fruit known for their large size and soft texture. Savour the luscious and exotic flavour of Premium Medjool Dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries"
 price: 1000
 category: "signature-collection"
 images:
