@@ -5,6 +5,8 @@ import Footer from '../../components/Footer.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL;
+
 const allProducts = await getCollection('products');
 
 // Group products by category
@@ -60,7 +62,7 @@ const categoryLabels: Record<string, string> = {
                 {categoryLabels[category] || category}
               </h2>
               <a
-                href={`/products/${category}`}
+                href={`${base}/products/${category}`}
                 class="text-[#39441E] font-semibold hover:underline"
               >
                 View All →
