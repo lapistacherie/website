@@ -26,30 +26,26 @@ export async function getStaticPaths() {
 
 const { products, category } = Astro.props;
 
-const categoryInfo: Record<string, { title: string; description: string; image: string }> = {
+const categoryInfo: Record<string, { title: string; image: string }> = {
   'everyday-gourmet': {
     title: 'Everyday Gourmet',
-    description: 'Premium dry fruits perfect for daily snacking and healthy living',
     image: `${base}/images/collections/everyday-gourmet.jpg`,
   },
   'jar-collection': {
     title: 'Jar Collection',
-    description: 'Beautifully packaged products in elegant reusable glass jars',
     image: `${base}/images/collections/jar-collection.jpg`,
   },
   'signature-collection': {
     title: 'Signature Collection',
-    description: 'Our finest curated blends for the most discerning tastes',
     image: `${base}/images/collections/signature-collection.jpg`,
   },
   'festive-gifting': {
     title: 'Festive Gifting',
-    description: 'Thoughtfully crafted gift boxes for special occasions and celebrations',
     image: `${base}/images/collections/festive-gifting.jpg`,
   },
 };
 
-const info = categoryInfo[category] || { title: category, description: '', image: '' };
+const info = categoryInfo[category] || { title: category, image: '' };
 ---
 
 <Layout title={`${info.title} - La Pistacherie`}>
@@ -58,7 +54,7 @@ const info = categoryInfo[category] || { title: category, description: '', image
   <main>
     <!-- Category Hero Banner -->
     {info.image && (
-      <section class="relative h-64 md:h-80 lg:h-96 overflow-hidden">
+      <section class="relative h-96 md:h-[36rem] lg:h-[44rem] overflow-hidden">
         <img
           src={info.image}
           alt={info.title}
@@ -66,12 +62,9 @@ const info = categoryInfo[category] || { title: category, description: '', image
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end">
           <div class="container mx-auto px-4 max-w-7xl pb-8 md:pb-12">
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
               {info.title}
             </h1>
-            <p class="text-white/90 text-lg md:text-xl max-w-2xl">
-              {info.description}
-            </p>
           </div>
         </div>
       </section>
