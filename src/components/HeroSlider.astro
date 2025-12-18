@@ -31,7 +31,7 @@ const slides = [
     <div class="swiper-wrapper">
       {slides.map((slide, index) => (
         <div class="swiper-slide relative">
-          <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30 z-10"></div>
+          <div class="absolute inset-0 bg-linear-to-r from-black/60 to-black/30 z-10"></div>
           <div
             class="w-full h-full bg-cover bg-center"
             style={`background-image: url('${base}/${slide.image}'); background-color: #39441E;`}
@@ -46,7 +46,7 @@ const slides = [
                   {slide.description}
                 </p>
                 <a
-                  href={slide.link}
+                  href={base.concat(slide.link)}
                   class="inline-block bg-white text-[#39441E] px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
                 >
                   {slide.cta}
