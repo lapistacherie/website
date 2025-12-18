@@ -5,6 +5,8 @@ import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL;
+
 // Get all products for client-side search
 const allProducts = await getCollection('products');
 ---
@@ -38,7 +40,7 @@ const allProducts = await getCollection('products');
   <Footer />
 </Layout>
 
-<script define:vars={{ allProducts }}>
+<script define:vars={{ allProducts, base }}>
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
 
@@ -59,36 +61,43 @@ const allProducts = await getCollection('products');
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        ${products.map(product => `
-          <a href="/products/${product.data.category}/${product.slug}" class="group bg-white rounded-lg overflow-hidden border border-[#D4AF37]/30 shadow-sm hover:shadow-[0_8px_30px_rgb(212,175,55,0.15)] hover:border-[#D4AF37] transition-all duration-300">
-            ${product.data.featured ? '<span class="absolute top-2 right-2 bg-[#39441E] text-white text-xs px-2 py-1 rounded z-10">Featured</span>' : ''}
-            <div class="aspect-square relative overflow-hidden">
+        ${products.map(product => {
+          const hasVariants = product.data.variants && product.data.variants.length > 0;
+          const imagePath = `${base}/images/products/${product.data.category}/${product.data.images[0]}`;
+          const priceText = hasVariants ? 'From ' : '';
+          const formattedPrice = product.data.price.toFixed(2);
+
+          return `
+          <a href="${base}/products/${product.data.category}/${product.slug}" class="bg-white flex flex-col rounded-lg overflow-hidden border border-[#D4AF37]/30 shadow-sm hover:shadow-[0_8px_30px_rgb(212,175,55,0.15)] hover:border-[#D4AF37] transition-all duration-300">
+            <div class="relative aspect-square bg-gray-200">
               <img
-                src="${product.data.images[0]}"
+                src="${imagePath}"
                 alt="${product.data.title}"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-full object-cover"
               />
+              ${product.data.featured ? '<span class="absolute top-2 right-2 bg-[#D4AF37] text-white text-xs px-2 py-1 rounded">Featured</span>' : ''}
             </div>
-            <div class="p-4">
-              <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-[#39441E] transition-colors">
-                ${product.data.title}
-              </h3>
-              <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-                ${product.data.description}
-              </p>
-              <div class="flex items-baseline justify-between">
-                <span class="text-2xl font-bold text-gray-900">
-                  ${product.data.price}
+            <div class="p-4 grow flex flex-col justify-between">
+              <div>
+                <div class="text-xs text-gray-400 font-medium uppercase tracking-widest mb-1">
+                  ${product.data.category.replace('-', ' ')}
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4 line-clamp-2">
+                  ${product.data.title}
+                </h3>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-lg font-semibold text-[#39441E]">
+                  ${priceText}₹${formattedPrice}
                 </span>
-                ${product.data.originalPrice ? `
-                  <span class="text-sm text-gray-500 line-through">
-                    ${product.data.originalPrice}
-                  </span>
-                ` : ''}
+                <span class="text-sm text-gray-500 hover:text-[#39441E] transition-colors">
+                  View Details →
+                </span>
               </div>
             </div>
           </a>
-        `).join('')}
+        `;
+        }).join('')}
       </div>
     `;
     searchResults.innerHTML = resultsHTML;
@@ -107,12 +116,12 @@ const allProducts = await getCollection('products');
     const lowerQuery = query.toLowerCase().trim();
     const filtered = allProducts.filter(product => {
       const title = product.data.title.toLowerCase();
-      const description = product.data.description.toLowerCase();
       const category = product.data.category.toLowerCase();
+      const tags = product.data.tags ? product.data.tags.join(' ').toLowerCase() : '';
 
       return title.includes(lowerQuery) ||
-             description.includes(lowerQuery) ||
-             category.includes(lowerQuery);
+             category.includes(lowerQuery) ||
+             tags.includes(lowerQuery);
     });
 
     renderResults(filtered);
