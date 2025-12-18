@@ -127,7 +127,7 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
           </h1>
 
           <div id="price-display" class="mb-6">
-            <span class="text-4xl font-bold text-[#39441E]">
+            <span class="text-3xl font-medium text-gray-600">
               ₹<span id="current-price">{product.data.price}</span>
             </span>
           </div>
@@ -135,26 +135,23 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
           <!-- Variants Selector -->
           {product.data.variants && product.data.variants.length > 0 && (
             <div class="mb-6">
-              <h3 class="text-lg font-semibold mb-3">Size:</h3>
-              <div class="space-y-2">
+              <h3 class="text-lg font-semibold mb-2 text-gray-500">Size</h3>
+              <div class="flex flex-wrap gap-2">
                 {product.data.variants.map((variant, index) => (
-                  <label
-                    class="flex items-center justify-between p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 transition-colors variant-option"
-                  >
-                    <div class="flex items-center">
-                      <input
-                        type="radio"
-                        name="variant"
-                        value={index}
-                        data-price={variant.price}
-                        data-weight={variant.weight}
-                        data-image={variant.image ? `${base}${getImagePath(variant.image)}` : ''}
-                        checked={index === 0}
-                        class="w-4 h-4 text-[#39441E] border-gray-300 focus:ring-[#39441E]"
-                      />
-                      <span class="ml-3 font-medium text-gray-900">{variant.size}</span>
-                    </div>
-                    <span class="font-semibold text-gray-900">₹{variant.price}</span>
+                  <label class="variant-chip cursor-pointer">
+                    <input
+                      type="radio"
+                      name="variant"
+                      value={index}
+                      data-price={variant.price}
+                      data-weight={variant.weight}
+                      data-image={variant.image ? `${base}${getImagePath(variant.image)}` : ''}
+                      checked={index === 0}
+                      class="hidden"
+                    />
+                    <span class="inline-block px-4 py-2 border-2 border-gray-300 rounded-full text-sm font-medium text-gray-800 transition-all hover:border-gray-600">
+                      {variant.size}
+                    </span>
                   </label>
                 ))}
               </div>
@@ -321,15 +318,18 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
       }
 
       // Update visual selection
-      document.querySelectorAll('.variant-option').forEach(option => {
-        option.classList.remove('border-gray-400', 'bg-gray-50');
-        option.classList.add('border-gray-200');
+      document.querySelectorAll('.variant-chip span').forEach(chip => {
+        chip.classList.remove('border-[#39441E]', 'bg-[#39441E]', 'text-white');
+        chip.classList.add('border-gray-300', 'text-gray-700');
       });
 
-      const parentLabel = target.closest('.variant-option');
+      const parentLabel = target.closest('.variant-chip');
       if (parentLabel) {
-        parentLabel.classList.remove('border-gray-200');
-        parentLabel.classList.add('border-gray-400', 'bg-gray-50');
+        const chipSpan = parentLabel.querySelector('span');
+        if (chipSpan) {
+          chipSpan.classList.remove('border-gray-300', 'text-gray-700');
+          chipSpan.classList.add('border-[#39441E]', 'bg-[#39441E]', 'text-white');
+        }
       }
 
       // Update WhatsApp link with new variant
@@ -340,10 +340,13 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
   // Set initial selected variant styling and image
   const selectedVariant = document.querySelector('input[name="variant"]:checked');
   if (selectedVariant) {
-    const parentLabel = selectedVariant.closest('.variant-option');
+    const parentLabel = selectedVariant.closest('.variant-chip');
     if (parentLabel) {
-      parentLabel.classList.add('border-gray-400', 'bg-gray-50');
-      parentLabel.classList.remove('border-gray-200');
+      const chipSpan = parentLabel.querySelector('span');
+      if (chipSpan) {
+        chipSpan.classList.remove('border-gray-300', 'text-gray-700');
+        chipSpan.classList.add('border-[#39441E]', 'bg-[#39441E]', 'text-white');
+      }
     }
 
     // Set initial variant image if it exists
@@ -417,6 +420,17 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
 </script>
 
 <style>
+  /* Variant chip - selected state without border */
+  .variant-chip input:checked + span {
+    background-color: var(--color-gray-700);
+    border-color: var(--color-gray-700);
+    color: white;
+  }
+
+  .variant-chip input:checked + span:hover {
+    border-color: var(--color-gray-700) !important;
+  }
+
   /* Product content typography */
   .product-content {
     color: #1f2937;

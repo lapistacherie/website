@@ -9,6 +9,12 @@ featured: true
 inStock: true
 weight: "250g"
 tags: ["pistachios", "roasted", "salted", "middle eastern", "antioxidants"]
+variants:
+  - size: "250 gms"
+    weight: "250g"
+    price: 420
+    inStock: true
+    image: "pistachios-1.jpg"
 ---
 
 These Middle Eastern nuts are not only delicious but also highly nutritious. They are a good source of protein, healthy fats, fibre and various vitamins and minerals. Pistachios are particularly rich in antioxidants.

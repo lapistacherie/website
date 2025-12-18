@@ -9,6 +9,12 @@ featured: false
 inStock: true
 weight: "250g"
 tags: ["pecans", "american", "premium", "healthy fats", "minerals"]
+variants:
+  - size: "250 gms"
+    weight: "250g"
+    price: 640
+    inStock: true
+    image: "pecan-nuts-1.jpg"
 ---
 
 Nutritionally, Pecans are a good source of healthy fats, protein and fibre. They also contain various vitamin and minerals, magnesium and zinc.

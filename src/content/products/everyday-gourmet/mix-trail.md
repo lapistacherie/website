@@ -9,6 +9,12 @@ featured: true
 inStock: true
 weight: "250g"
 tags: ["trail mix", "mixed nuts", "energy", "on-the-go", "dried fruits"]
+variants:
+  - size: "250 gms"
+    weight: "250g"
+    price: 460
+    inStock: true
+    image: "mix-trail-1.jpg"
 ---
 
 A scrumptious blend of finely roasted almonds and cashews, mixed with walnuts, cranberries, blueberries, pistachios and dried dates which will take your taste buds on a palatable food trail like never before.
