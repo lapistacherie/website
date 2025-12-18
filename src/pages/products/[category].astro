@@ -84,6 +84,7 @@ const info = categoryInfo[category] || { title: category, image: '' };
               slug={product.slug}
               image={product.data.images[0]}
               featured={product.data.featured}
+              hasVariants={product.data.variants && product.data.variants.length > 0}
             />
           ))}
         </div>
