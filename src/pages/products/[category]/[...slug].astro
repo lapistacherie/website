@@ -1,16 +1,15 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import ProductCard from '../../../components/ProductCard.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
-import { CONTACT } from '../../../constants';
-
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { CONTACT } from "../../../constants";
 
 export async function getStaticPaths() {
-  const allProducts = await getCollection('products');
+  const allProducts = await getCollection("products");
 
-  return allProducts.map(product => ({
+  return allProducts.map((product) => ({
     params: {
       category: product.data.category,
       slug: product.slug,
@@ -20,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  product: CollectionEntry<'products'>;
+  product: CollectionEntry<"products">;
 }
 
 const { product } = Astro.props;
@@ -29,47 +28,50 @@ const { Content } = await product.render();
 const base = import.meta.env.BASE_URL;
 
 // Get related products from the same category
-const allProducts = await getCollection('products');
+const allProducts = await getCollection("products");
 const relatedProducts = allProducts
-  .filter(p =>
-    p.data.category === product.data.category &&
-    p.slug !== product.slug
+  .filter(
+    (p) => p.data.category === product.data.category && p.slug !== product.slug
   )
   .slice(0, 4);
 
 // Generate initial WhatsApp URL
-const initialVariant = product.data.variants ? product.data.variants[0].size : product.data.weight || '';
-const variantText = initialVariant ? ` (${initialVariant})` : '';
+const initialVariant = product.data.variants
+  ? product.data.variants[0].size
+  : product.data.weight || "";
+const variantText = initialVariant ? ` (${initialVariant})` : "";
 const initialMessage = `Hi! I would like to order *${product.data.title}${variantText}*.\n\nCould you please share the availability and delivery details?\n\nThank you!`;
 const initialWhatsAppUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(initialMessage)}`;
 
 // Check if product has any stock available
 const hasStock = product.data.variants
-  ? product.data.variants.some(v => v.inStock)
+  ? product.data.variants.some((v) => v.inStock)
   : product.data.inStock;
 
 // Helper function to build full image path
-const getImagePath = (imageName: string) => `/images/products/${product.data.category}/${imageName}`;
+const getImagePath = (imageName: string) =>
+  `/images/products/${product.data.category}/${imageName}`;
 
 // Get initial image - use first variant's image if it exists, otherwise first product image
-const initialImage = product.data.variants && product.data.variants[0]?.image
-  ? getImagePath(product.data.variants[0].image)
-  : getImagePath(product.data.images[0]);
+const initialImage =
+  product.data.variants && product.data.variants[0]?.image
+    ? getImagePath(product.data.variants[0].image)
+    : getImagePath(product.data.images[0]);
 
 // Filter out images that are used in variants
 const variantImages = product.data.variants
-  ? product.data.variants.map(v => v.image).filter(Boolean)
+  ? product.data.variants.map((v) => v.image).filter(Boolean)
   : [];
-const thumbnailImages = product.data.images.filter(img => !variantImages.includes(img));
+const thumbnailImages =
+  product.data.variants && product.data.variants.length > 0
+    ? product.data.images.filter((img) => !variantImages.includes(img))
+    : product.data.images.slice(1);
 
 // Build SEO keywords from tags
-const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
+const keywords = product.data.tags ? product.data.tags.join(", ") : undefined;
 ---
 
-<Layout
-  title={`${product.data.title} - La Pistacherie`}
-  keywords={keywords}
->
+<Layout title={`${product.data.title} - La Pistacherie`} keywords={keywords}>
   <Header />
 
   <main class="py-16">
@@ -80,7 +82,10 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
         <span class="mx-2">/</span>
         <a href={`${base}/products`} class="hover:text-[#39441E]">Products</a>
         <span class="mx-2">/</span>
-        <a href={`${base}/products/${product.data.category}`} class="hover:text-[#39441E]">
+        <a
+          href={`${base}/products/${product.data.category}`}
+          class="hover:text-[#39441E]"
+        >
           {product.data.category}
         </a>
         <span class="mx-2">/</span>
@@ -92,7 +97,10 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
         <!-- Product Image Gallery -->
         <div class="space-y-4">
           <!-- Main Image -->
-          <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-zoom-in" id="main-image-container">
+          <div
+            class="aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-zoom-in"
+            id="main-image-container"
+          >
             <img
               id="main-image"
               src={`${base}${initialImage}`}
@@ -102,22 +110,24 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
           </div>
 
           <!-- Thumbnail Gallery -->
-          {thumbnailImages.length > 0 && (
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              {thumbnailImages.map((image, index) => (
-                <button
-                  class="thumbnail-btn aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-zoom-in"
-                  data-image={`${base}${getImagePath(image)}`}
-                >
-                  <img
-                    src={`${base}${getImagePath(image)}`}
-                    alt={`${product.data.title} - View ${index + 1}`}
-                    class="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
-          )}
+          {
+            thumbnailImages.length > 0 && (
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {thumbnailImages.map((image, index) => (
+                  <button
+                    class="thumbnail-btn aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-zoom-in"
+                    data-image={`${base}${getImagePath(image)}`}
+                  >
+                    <img
+                      src={`${base}${getImagePath(image)}`}
+                      alt={`${product.data.title} - View ${index + 1}`}
+                      class="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )
+          }
         </div>
 
         <!-- Product Info -->
@@ -133,68 +143,90 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
           </div>
 
           <!-- Variants Selector -->
-          {product.data.variants && product.data.variants.length > 0 && (
-            <div class="mb-6">
-              <h3 class="text-lg font-semibold mb-2 text-gray-500">Size</h3>
-              <div class="flex flex-wrap gap-2">
-                {product.data.variants.map((variant, index) => (
-                  <label class="variant-chip cursor-pointer">
-                    <input
-                      type="radio"
-                      name="variant"
-                      value={index}
-                      data-price={variant.price}
-                      data-weight={variant.weight}
-                      data-image={variant.image ? `${base}${getImagePath(variant.image)}` : ''}
-                      checked={index === 0}
-                      class="hidden"
-                    />
-                    <span class="inline-block px-4 py-2 border-2 border-gray-300 rounded-full text-sm font-medium text-gray-800 transition-all hover:border-gray-600">
-                      {variant.size}
-                    </span>
-                  </label>
-                ))}
+          {
+            product.data.variants && product.data.variants.length > 0 && (
+              <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-2 text-gray-500">Size</h3>
+                <div class="flex flex-wrap gap-2">
+                  {product.data.variants.map((variant, index) => (
+                    <label class="variant-chip cursor-pointer">
+                      <input
+                        type="radio"
+                        name="variant"
+                        value={index}
+                        data-price={variant.price}
+                        data-weight={variant.weight}
+                        data-image={
+                          variant.image
+                            ? `${base}${getImagePath(variant.image)}`
+                            : ""
+                        }
+                        checked={index === 0}
+                        class="hidden"
+                      />
+                      <span class="inline-block px-4 py-2 border-2 border-gray-300 rounded-full text-sm font-medium text-gray-800 transition-all hover:border-gray-600">
+                        {variant.size}
+                      </span>
+                    </label>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )
+          }
 
-          {!product.data.variants && product.data.inStock ? (
-            <div class="flex items-center gap-2 text-green-600 mb-6">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="font-medium">In Stock</span>
-            </div>
-          ) : !product.data.variants && !product.data.inStock ? (
-            <div class="flex items-center gap-2 text-red-600 mb-6">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="font-medium">Out of Stock</span>
-            </div>
-          ) : null}
+          {
+            !product.data.variants && product.data.inStock ? (
+              <div class="flex items-center gap-2 text-green-600 mb-6">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="font-medium">In Stock</span>
+              </div>
+            ) : !product.data.variants && !product.data.inStock ? (
+              <div class="flex items-center gap-2 text-red-600 mb-6">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="font-medium">Out of Stock</span>
+              </div>
+            ) : null
+          }
 
-          {hasStock ? (
-            <a
-              id="whatsapp-order-btn"
-              href={initialWhatsAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white text-center px-8 py-4 rounded-md font-semibold hover:bg-[#20BA5A] transition-colors"
-            >
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-              </svg>
-              Order via WhatsApp
-            </a>
-          ) : (
-            <div class="flex items-center justify-center gap-2 w-full bg-gray-400 text-white text-center px-8 py-4 rounded-md font-semibold cursor-not-allowed">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
-              </svg>
-              Currently Out of Stock
-            </div>
-          )}
+          {
+            hasStock ? (
+              <a
+                id="whatsapp-order-btn"
+                href={initialWhatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white text-center px-8 py-4 rounded-md font-semibold hover:bg-[#20BA5A] transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                </svg>
+                Order via WhatsApp
+              </a>
+            ) : (
+              <div class="flex items-center justify-center gap-2 w-full bg-gray-400 text-white text-center px-8 py-4 rounded-md font-semibold cursor-not-allowed">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Currently Out of Stock
+              </div>
+            )
+          }
 
           <!-- Product Description -->
           <div class="mt-8 product-content">
@@ -204,78 +236,109 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
       </div>
 
       <!-- Related Products -->
-      {relatedProducts.length > 0 && (
-        <section>
-          <h2 class="text-3xl font-bold text-gray-900 mb-8">
-            More from this collection
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {relatedProducts.map((relatedProduct) => (
-              <ProductCard
-                title={relatedProduct.data.title}
-                price={relatedProduct.data.price}
-                category={relatedProduct.data.category}
-                slug={relatedProduct.slug}
-                image={relatedProduct.data.images[0]}
-                featured={relatedProduct.data.featured}
-              />
-            ))}
-          </div>
-        </section>
-      )}
+      {
+        relatedProducts.length > 0 && (
+          <section>
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">
+              More from this collection
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {relatedProducts.map((relatedProduct) => (
+                <ProductCard
+                  title={relatedProduct.data.title}
+                  price={relatedProduct.data.price}
+                  category={relatedProduct.data.category}
+                  slug={relatedProduct.slug}
+                  image={relatedProduct.data.images[0]}
+                  featured={relatedProduct.data.featured}
+                />
+              ))}
+            </div>
+          </section>
+        )
+      }
     </div>
   </main>
 
   <Footer />
 
   <!-- Image Zoom Modal -->
-  <div id="image-zoom-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 backdrop-blur-lg bg-white/30" style="backdrop-filter: blur(16px);">
-    <button id="close-zoom" class="absolute top-4 right-4 text-gray-800 hover:text-gray-600 transition-colors z-10 bg-white/50 backdrop-blur-sm rounded-full p-2">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+  <div
+    id="image-zoom-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 backdrop-blur-lg bg-white/30"
+    style="backdrop-filter: blur(16px);"
+  >
+    <button
+      id="close-zoom"
+      class="absolute top-4 right-4 text-gray-800 hover:text-gray-600 transition-colors z-10 bg-white/50 backdrop-blur-sm rounded-full p-2"
+    >
+      <svg
+        class="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
-    <img id="zoomed-image" src="" alt="" class="max-w-full max-h-full object-contain shadow-2xl rounded-lg transition-opacity duration-200">
+    <img
+      id="zoomed-image"
+      src=""
+      alt=""
+      class="max-w-full max-h-full object-contain shadow-2xl rounded-lg transition-opacity duration-200"
+    />
   </div>
 </Layout>
 
-<script define:vars={{ productTitle: product.data.title, whatsappNumber: CONTACT.whatsapp }}>
+<script
+  define:vars={{
+    productTitle: product.data.title,
+    whatsappNumber: CONTACT.whatsapp,
+  }}
+>
   // Image gallery functionality
-  const mainImage = document.getElementById('main-image');
-  const thumbnailBtns = document.querySelectorAll('.thumbnail-btn');
+  const mainImage = document.getElementById("main-image");
+  const thumbnailBtns = document.querySelectorAll(".thumbnail-btn");
 
   thumbnailBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const imageUrl = btn.getAttribute('data-image');
-      const modal = document.getElementById('image-zoom-modal');
-      const zoomedImg = document.getElementById('zoomed-image');
+    btn.addEventListener("click", () => {
+      const imageUrl = btn.getAttribute("data-image");
+      const modal = document.getElementById("image-zoom-modal");
+      const zoomedImg = document.getElementById("zoomed-image");
 
       if (imageUrl && zoomedImg && modal) {
         // Hide the image while loading to prevent flash
-        zoomedImg.style.opacity = '0';
+        zoomedImg.style.opacity = "0";
         zoomedImg.src = imageUrl;
-        zoomedImg.alt = mainImage?.alt || '';
+        zoomedImg.alt = mainImage?.alt || "";
 
         // Wait for image to load before showing modal
         zoomedImg.onload = () => {
-          modal.classList.remove('hidden');
-          modal.classList.add('flex');
-          document.body.style.overflow = 'hidden';
-          zoomedImg.style.opacity = '1';
+          modal.classList.remove("hidden");
+          modal.classList.add("flex");
+          document.body.style.overflow = "hidden";
+          zoomedImg.style.opacity = "1";
         };
       }
     });
   });
 
   // WhatsApp order link functionality
-  const whatsappBtn = document.getElementById('whatsapp-order-btn');
+  const whatsappBtn = document.getElementById("whatsapp-order-btn");
 
   function updateWhatsAppLink() {
-    const selectedVariant = document.querySelector('input[name="variant"]:checked');
-    let variantText = '';
+    const selectedVariant = document.querySelector(
+      'input[name="variant"]:checked'
+    );
+    let variantText = "";
 
     if (selectedVariant) {
-      const variantLabel = selectedVariant.parentElement?.querySelector('span')?.textContent;
+      const variantLabel =
+        selectedVariant.parentElement?.querySelector("span")?.textContent;
       if (variantLabel) {
         variantText = ` (${variantLabel})`;
       }
@@ -291,44 +354,50 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
 
   // Variant selector functionality
   const variantInputs = document.querySelectorAll('input[name="variant"]');
-  const currentPriceEl = document.getElementById('current-price');
+  const currentPriceEl = document.getElementById("current-price");
 
   variantInputs.forEach((input) => {
-    input.addEventListener('change', (e) => {
+    input.addEventListener("change", (e) => {
       const target = e.target;
-      const price = target.getAttribute('data-price');
-      const variantImage = target.getAttribute('data-image');
+      const price = target.getAttribute("data-price");
+      const variantImage = target.getAttribute("data-image");
 
       if (price && currentPriceEl) {
         currentPriceEl.textContent = price;
       }
 
       // Update main image if variant has an associated image
-      if (variantImage && variantImage.trim() !== '' && mainImage) {
+      if (variantImage && variantImage.trim() !== "" && mainImage) {
         mainImage.src = variantImage;
 
         // Update thumbnail active state to match the variant image
-        thumbnailBtns.forEach(btn => {
-          const btnImage = btn.getAttribute('data-image');
+        thumbnailBtns.forEach((btn) => {
+          const btnImage = btn.getAttribute("data-image");
           if (btnImage === variantImage) {
-            thumbnailBtns.forEach(b => b.classList.remove('border-[#39441E]'));
-            btn.classList.add('border-[#39441E]');
+            thumbnailBtns.forEach((b) =>
+              b.classList.remove("border-[#39441E]")
+            );
+            btn.classList.add("border-[#39441E]");
           }
         });
       }
 
       // Update visual selection
-      document.querySelectorAll('.variant-chip span').forEach(chip => {
-        chip.classList.remove('border-[#39441E]', 'bg-[#39441E]', 'text-white');
-        chip.classList.add('border-gray-300', 'text-gray-700');
+      document.querySelectorAll(".variant-chip span").forEach((chip) => {
+        chip.classList.remove("border-[#39441E]", "bg-[#39441E]", "text-white");
+        chip.classList.add("border-gray-300", "text-gray-700");
       });
 
-      const parentLabel = target.closest('.variant-chip');
+      const parentLabel = target.closest(".variant-chip");
       if (parentLabel) {
-        const chipSpan = parentLabel.querySelector('span');
+        const chipSpan = parentLabel.querySelector("span");
         if (chipSpan) {
-          chipSpan.classList.remove('border-gray-300', 'text-gray-700');
-          chipSpan.classList.add('border-[#39441E]', 'bg-[#39441E]', 'text-white');
+          chipSpan.classList.remove("border-gray-300", "text-gray-700");
+          chipSpan.classList.add(
+            "border-[#39441E]",
+            "bg-[#39441E]",
+            "text-white"
+          );
         }
       }
 
@@ -338,28 +407,34 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
   });
 
   // Set initial selected variant styling and image
-  const selectedVariant = document.querySelector('input[name="variant"]:checked');
+  const selectedVariant = document.querySelector(
+    'input[name="variant"]:checked'
+  );
   if (selectedVariant) {
-    const parentLabel = selectedVariant.closest('.variant-chip');
+    const parentLabel = selectedVariant.closest(".variant-chip");
     if (parentLabel) {
-      const chipSpan = parentLabel.querySelector('span');
+      const chipSpan = parentLabel.querySelector("span");
       if (chipSpan) {
-        chipSpan.classList.remove('border-gray-300', 'text-gray-700');
-        chipSpan.classList.add('border-[#39441E]', 'bg-[#39441E]', 'text-white');
+        chipSpan.classList.remove("border-gray-300", "text-gray-700");
+        chipSpan.classList.add(
+          "border-[#39441E]",
+          "bg-[#39441E]",
+          "text-white"
+        );
       }
     }
 
     // Set initial variant image if it exists
-    const initialVariantImage = selectedVariant.getAttribute('data-image');
-    if (initialVariantImage && initialVariantImage.trim() !== '' && mainImage) {
+    const initialVariantImage = selectedVariant.getAttribute("data-image");
+    if (initialVariantImage && initialVariantImage.trim() !== "" && mainImage) {
       mainImage.src = initialVariantImage;
 
       // Update thumbnail active state to match
-      thumbnailBtns.forEach(btn => {
-        const btnImage = btn.getAttribute('data-image');
+      thumbnailBtns.forEach((btn) => {
+        const btnImage = btn.getAttribute("data-image");
         if (btnImage === initialVariantImage) {
-          thumbnailBtns.forEach(b => b.classList.remove('border-[#39441E]'));
-          btn.classList.add('border-[#39441E]');
+          thumbnailBtns.forEach((b) => b.classList.remove("border-[#39441E]"));
+          btn.classList.add("border-[#39441E]");
         }
       });
     }
@@ -369,52 +444,56 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
   updateWhatsAppLink();
 
   // Image zoom functionality
-  const mainImageContainer = document.getElementById('main-image-container');
-  const zoomModal = document.getElementById('image-zoom-modal');
-  const zoomedImage = document.getElementById('zoomed-image');
-  const closeZoomBtn = document.getElementById('close-zoom');
+  const mainImageContainer = document.getElementById("main-image-container");
+  const zoomModal = document.getElementById("image-zoom-modal");
+  const zoomedImage = document.getElementById("zoomed-image");
+  const closeZoomBtn = document.getElementById("close-zoom");
 
-  mainImageContainer?.addEventListener('click', () => {
+  mainImageContainer?.addEventListener("click", () => {
     const currentImage = mainImage?.src;
     if (currentImage && zoomedImage && zoomModal) {
       // Hide the image while loading to prevent flash
-      zoomedImage.style.opacity = '0';
+      zoomedImage.style.opacity = "0";
       zoomedImage.src = currentImage;
-      zoomedImage.alt = mainImage?.alt || '';
+      zoomedImage.alt = mainImage?.alt || "";
 
       // Wait for image to load before showing modal
       zoomedImage.onload = () => {
-        zoomModal.classList.remove('hidden');
-        zoomModal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-        zoomedImage.style.opacity = '1';
+        zoomModal.classList.remove("hidden");
+        zoomModal.classList.add("flex");
+        document.body.style.overflow = "hidden";
+        zoomedImage.style.opacity = "1";
       };
     }
   });
 
-  closeZoomBtn?.addEventListener('click', () => {
+  closeZoomBtn?.addEventListener("click", () => {
     if (zoomModal) {
-      zoomModal.classList.add('hidden');
-      zoomModal.classList.remove('flex');
-      document.body.style.overflow = '';
+      zoomModal.classList.add("hidden");
+      zoomModal.classList.remove("flex");
+      document.body.style.overflow = "";
     }
   });
 
   // Close on backdrop click
-  zoomModal?.addEventListener('click', (e) => {
+  zoomModal?.addEventListener("click", (e) => {
     if (e.target === zoomModal) {
-      zoomModal.classList.add('hidden');
-      zoomModal.classList.remove('flex');
-      document.body.style.overflow = '';
+      zoomModal.classList.add("hidden");
+      zoomModal.classList.remove("flex");
+      document.body.style.overflow = "";
     }
   });
 
   // Close on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && zoomModal && !zoomModal.classList.contains('hidden')) {
-      zoomModal.classList.add('hidden');
-      zoomModal.classList.remove('flex');
-      document.body.style.overflow = '';
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "Escape" &&
+      zoomModal &&
+      !zoomModal.classList.contains("hidden")
+    ) {
+      zoomModal.classList.add("hidden");
+      zoomModal.classList.remove("flex");
+      document.body.style.overflow = "";
     }
   });
 </script>
@@ -489,11 +568,11 @@ const keywords = product.data.tags ? product.data.tags.join(', ') : undefined;
   }
 
   .product-content :global(a) {
-    color: #39441E;
+    color: #39441e;
     text-decoration: underline;
   }
 
   .product-content :global(a:hover) {
-    color: #4A5525;
+    color: #4a5525;
   }
 </style>

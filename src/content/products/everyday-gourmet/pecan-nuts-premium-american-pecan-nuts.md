@@ -17,6 +17,6 @@ variants:
     image: "pecan-nuts-1.jpg"
 ---
 
-Nutritionally, Pecans are a good source of healthy fats, protein and fibre. They also contain various vitamin and minerals, magnesium and zinc.
+Benefits: Nutritionally, Pecans are a good source of healthy fats, protein and fibre. They also contain various vitamin and minerals, magnesium and zinc.
 
 Store in cool and dry place away from sunlight. Keep airtight. Refrigerate to extend the shelf life.

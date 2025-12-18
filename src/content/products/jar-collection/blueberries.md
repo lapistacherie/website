@@ -23,8 +23,12 @@ variants:
     image: "blueberries-2.jpg"
 ---
 
-Jar contains Dried Blueberries. Blueberries are a nutritional powerhouse, offering an array of health benefits. They are low in calories, high in fibre and also rich in antioxidants.
+Jar contains Dried Blueberries.
 
-## Consumption and Storage
+Blueberries are a nutritional powerhouse, offering an array of health benefits. They are low in calories, high in fibre and also rich in antioxidants.
 
-Blueberries are for the zesty sweet connoisseur! Perfect health snack with your summer drink, Blueberries takes you on a voyage of gourmet perfection! Store in a cool and dry place. Refrigerate to extend the shelf life.
+## Consumption and Storage:
+
+Blueberries are for the zesty sweet connoisseur! Perfect health snack with your summer drink, Blueberries takes you on a voyage of gourmet perfection!
+
+Store in a cool and dry place. Refrigerate to extend the shelf life.

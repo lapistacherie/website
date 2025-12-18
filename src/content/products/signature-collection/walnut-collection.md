@@ -28,11 +28,11 @@ Freshly prepared using natural ingredients. No added preservatives. Vegan.
 
 Full of rare and powerful antioxidants, Walnuts are delicious, nutritious powerhouses. A total source of good health nutrients, walnuts aid in improving both physical health (heart and brain) and mental health (stress management).
 
-## Consumption & Storage
+## Consumption & Storage:
 
 Store in a cool, dry place away from sunlight. Consume fresh within a month
 
-## Product Dimensions
+## Product Dimensions:
 
 - Small Box – 8 pcs – 7.7" × 5" × 1.8"
 - Big Box – 12 pcs - 9" × 6.8" × 1.8"

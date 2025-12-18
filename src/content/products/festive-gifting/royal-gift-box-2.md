@@ -14,12 +14,14 @@ tags: ["royal box", "festive", "gift box", "walnuts", "figs", "kesar"]
 
 This Royal Box wrapped beautifully in a rich satin fabric, is perfect to bestow your loved ones with good health at every special occasion.
 
-## Contents of the Box (16 pcs) + 500mg Kashmiri Kesar
+Contents of the Box (16 pcs) + 500mg Kashmiri Kesar
 
-Chilean Walnuts stuffed with kesar, elaichi infused apricot & raisins. Afghani Figs stuffed with kesar infused roasted & salted almonds and pistachios & rose petals.
+Chilean Walnuts stuffed with kesar, elaichi infused apricot & raisins.
+
+Afghani Figs stuffed with kesar infused roasted & salted almonds and pistachios & rose petals.
 
 Freshly prepared using natural ingredients. No added preservatives. Handmade.
 
-## Consumption & Storage
+## Consumption & Storage:
 
 Store in a cool, dry place away from sunlight. Consume fresh within a month.

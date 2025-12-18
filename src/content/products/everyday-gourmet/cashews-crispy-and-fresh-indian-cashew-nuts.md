@@ -17,6 +17,6 @@ variants:
     image: "cashews-1.jpg"
 ---
 
-Cashews offer an array of health benefits due to their nutrient-rich composition. They are excellent source of healthy fats, proteins, dietary fibre, vitamins and essential minerals.
+Benefits: Cashews offer an array of health benefits due to their nutrient-rich composition. They are excellent source of healthy fats, proteins, dietary fibre, vitamins and essential minerals.
 
 Store in cool and dry place away from sunlight. Keep airtight.

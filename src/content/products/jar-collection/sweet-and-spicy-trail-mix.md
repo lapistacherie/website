@@ -27,12 +27,8 @@ Jar contains Californian Almonds, Indian Cashews, Hazelnuts, Pecan Nuts and Pump
 
 Freshly made in small batches.
 
-## Consumption and Storage
-
-**Consumption:**
+## Consumption and Storage:
 
 Sweet & Spicy Trail Mix are perfect party snacks. Relish as an accompaniment with your cheese boards or serve as an appetizer just before the meals.
-
-**Storage:**
 
 Consume once opened and ensure the lid tightly shut. Store in a cool, dry place away from direct sunlight.

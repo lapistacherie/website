@@ -25,10 +25,8 @@ variants:
 
 Jar contains Dried Whole Cranberries and Dried Blueberries.
 
-## Consumption and Storage
+## Consumption and Storage:
 
-The tartness of the cranberries is mellowed by the sweetness of blueberries, creating a harmonious medley of flavours.
-
-The dried berries can be incorporated into various dishes including baked goods, salads, and smoothie bowls, giving a tangy and sweet twist to the dishes.
+The tartness of the cranberries is mellowed by the sweetness of blueberries, creating a harmonious medley of flavours. The dried berries can be incorporated into various dishes including baked goods, salads, and smoothie bowls, giving a tangy and sweet twist to the dishes.
 
 Store in a cool and dry place. Refrigerate to extend the shelf life.

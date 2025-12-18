@@ -34,21 +34,17 @@ variants:
     image: "dates-4.jpg"
 ---
 
-Dates - Often referred to as the "King of Dates", Medjool Dates are a prized fruit known for their large size and soft texture.
-
-Savour the luscious and exotic flavour of Premium Medjool Dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries, caramelized pecans & rose petals, raw honey & elaichi infused pistachios and walnuts, taking your tastebuds on a sophisticated journey of the senses.
+Dates - Often referred to as the "King of Dates", Medjool Dates are a prized fruit known for their large size and soft texture. Savour the luscious and exotic flavour of Premium Medjool Dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries, caramelized pecans & rose petals, raw honey & elaichi infused pistachios and walnuts, taking your tastebuds on a sophisticated journey of the senses.
 
 Freshly prepared using natural ingredients. No added preservatives. Raw organic honey used. Handmade.
 
-## Health Benefits
-
 There is more to this Middle Eastern Fruit than just delicious taste. They are naturally low in fat, cholesterol-free and contain no sodium. These dates are an excellent source of dietary fibre and essential minerals like potassium, magnesium and copper.
 
-## Consumption & Storage
+## Consumption & Storage:
 
 Store in a cool, dry place away from sunlight. Consume fresh within a month.
 
-## Product Dimensions
+## Product Dimensions:
 
 - Small Box – 10 pcs – 7.7" × 5" × 1.8"
 - Big Box – 21 pcs - 9" × 6.8" × 1.8"

@@ -27,12 +27,8 @@ Jar contains Californian Almonds and Indian Cashews, coated with powdered chedda
 
 Freshly roasted in small batches. No added preservatives.
 
-## Consumption and Storage
-
-**Consumption:**
+## Consumption and Storage:
 
 Cheese & Chilli Almond Cashew Mix are perfect party snacks. Relish as an accompaniment with your cheese boards or serve as an appetizer just before the meals.
-
-**Storage:**
 
 Consume once opened and ensure the lid tightly shut. Store in a cool, dry place away from direct sunlight.

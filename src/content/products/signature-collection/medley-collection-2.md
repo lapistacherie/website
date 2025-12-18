@@ -15,14 +15,14 @@ Savour the luscious and exotic flavour of Afghani Figs stuffed with roasted & sa
 
 Freshly prepared using natural ingredients. No added preservatives. Handmade.
 
-## Benefits
+## Benefits:
 
 Dried fruits offer a treasure trove of health benefits in a compact, delicious package. Packed with essential vitamins, minerals, antioxidants and fibre, they provide a convenient way to boost your daily nutrient intake.
 
-## Consumption & Storage
+## Consumption & Storage:
 
 Store in a cool, dry place away from sunlight. Consume fresh within a month.
 
-## Product Dimensions
+## Product Dimensions:
 
 Royal Box - 16 pcs - 9.5" × 9.5" × 1.75"
