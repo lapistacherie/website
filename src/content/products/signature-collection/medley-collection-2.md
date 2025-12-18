@@ -3,8 +3,8 @@ title: "Medley Collection 2"
 price: 1590
 category: "signature-collection"
 images:
-  - "/images/products/signature-collection/medley2-1.jpg"
-  - "/images/products/signature-collection/medley2-2.jpg"
+  - "medley2-1.jpg"
+  - "medley2-2.jpg"
 featured: true
 inStock: true
 weight: "16 pcs"

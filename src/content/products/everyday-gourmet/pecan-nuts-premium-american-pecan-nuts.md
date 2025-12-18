@@ -3,8 +3,8 @@ title: "Pecan Nuts: Premium American Pecan Nuts"
 price: 640
 category: "everyday-gourmet"
 images:
-  - "/images/products/everyday-gourmet/pecan-nuts-1.jpg"
-  - "/images/products/everyday-gourmet/pecan-nuts-2.jpg"
+  - "pecan-nuts-1.jpg"
+  - "pecan-nuts-2.jpg"
 featured: false
 inStock: true
 weight: "250g"

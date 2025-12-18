@@ -3,9 +3,9 @@ title: "Sweet and Spicy Trail Mix"
 price: 280
 category: "jar-collection"
 images:
-  - "/images/products/jar-collection/sweet-spicy-trail-mix-1.jpg"
-  - "/images/products/jar-collection/sweet-spicy-trail-mix-2.jpg"
-  - "/images/products/jar-collection/sweet-spicy-trail-mix-3.jpg"
+  - "sweet-spicy-trail-mix-1.jpg"
+  - "sweet-spicy-trail-mix-2.jpg"
+  - "sweet-spicy-trail-mix-3.jpg"
 featured: true
 inStock: true
 weight: "90g"
@@ -15,10 +15,12 @@ variants:
     weight: "90g"
     price: 280
     inStock: true
+    image: "sweet-spicy-trail-mix-1.jpg"
   - size: "190 gms"
     weight: "190g"
     price: 550
     inStock: true
+    image: "sweet-spicy-trail-mix-2.jpg"
 ---
 
 Jar contains Californian Almonds, Indian Cashews, Hazelnuts, Pecan Nuts and Pumpkin seeds flavoured with raw organic honey, Indian spices & rosemary sprigs.

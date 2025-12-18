@@ -3,8 +3,8 @@ title: "Mix Trail"
 price: 460
 category: "everyday-gourmet"
 images:
-  - "/images/products/everyday-gourmet/mix-trail-1.jpg"
-  - "/images/products/everyday-gourmet/mix-trail-2.jpg"
+  - "mix-trail-1.jpg"
+  - "mix-trail-2.jpg"
 featured: true
 inStock: true
 weight: "250g"

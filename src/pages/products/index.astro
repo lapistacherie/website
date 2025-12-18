@@ -44,7 +44,6 @@ const categoryLabels: Record<string, string> = {
         {allProducts.map((product) => (
           <ProductCard
             title={product.data.title}
-            description={product.data.description}
             price={product.data.price}
             category={product.data.category}
             slug={product.slug}
@@ -73,7 +72,6 @@ const categoryLabels: Record<string, string> = {
               {products.slice(0, 4).map((product) => (
                 <ProductCard
                   title={product.data.title}
-                  description={product.data.description}
                   price={product.data.price}
                   category={product.data.category}
                   slug={product.slug}

@@ -3,8 +3,8 @@ title: "Cashews: Crispy and Fresh Indian Cashew Nuts"
 price: 690
 category: "everyday-gourmet"
 images:
-  - "/images/products/everyday-gourmet/cashews-1.jpg"
-  - "/images/products/everyday-gourmet/cashews-2.jpg"
+  - "cashews-1.jpg"
+  - "cashews-2.jpg"
 featured: true
 inStock: true
 weight: "500g"

@@ -3,9 +3,9 @@ title: "Mix Berries"
 price: 240
 category: "jar-collection"
 images:
-  - "/images/products/jar-collection/mix-berries-1.jpg"
-  - "/images/products/jar-collection/mix-berries-2.jpg"
-  - "/images/products/jar-collection/mix-berries-3.jpg"
+  - "mix-berries-1.jpg"
+  - "mix-berries-2.jpg"
+  - "mix-berries-3.jpg"
 featured: true
 inStock: false
 weight: "100g"
@@ -15,10 +15,12 @@ variants:
     weight: "100g"
     price: 240
     inStock: true
+    image: "mix-berries-1.jpg"
   - size: "200 gms"
     weight: "200g"
     price: 420
     inStock: true
+    image: "mix-berries-2.jpg"
 ---
 
 Jar contains Dried Whole Cranberries and Dried Blueberries.

@@ -47,6 +47,20 @@ const initialWhatsAppUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURICo
 const hasStock = product.data.variants
   ? product.data.variants.some(v => v.inStock)
   : product.data.inStock;
+
+// Helper function to build full image path
+const getImagePath = (imageName: string) => `/images/products/${product.data.category}/${imageName}`;
+
+// Get initial image - use first variant's image if it exists, otherwise first product image
+const initialImage = product.data.variants && product.data.variants[0]?.image
+  ? getImagePath(product.data.variants[0].image)
+  : getImagePath(product.data.images[0]);
+
+// Filter out images that are used in variants
+const variantImages = product.data.variants
+  ? product.data.variants.map(v => v.image).filter(Boolean)
+  : [];
+const thumbnailImages = product.data.images.filter(img => !variantImages.includes(img));
 ---
 
 <Layout
@@ -74,25 +88,25 @@ const hasStock = product.data.variants
         <!-- Product Image Gallery -->
         <div class="space-y-4">
           <!-- Main Image -->
-          <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+          <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-zoom-in" id="main-image-container">
             <img
               id="main-image"
-              src={`${base}/${product.data.images[0].slice(1)}`}
+              src={`${base}${initialImage}`}
               alt={product.data.title}
               class="w-full h-full object-cover"
             />
           </div>
 
           <!-- Thumbnail Gallery -->
-          {product.data.images.length > 1 && (
+          {thumbnailImages.length > 0 && (
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              {product.data.images.map((image, index) => (
+              {thumbnailImages.map((image, index) => (
                 <button
-                  class="thumbnail-btn aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 border-transparent hover:border-[#39441E] transition-colors focus:outline-none focus:border-[#39441E]"
-                  data-image={`${base}/${image.slice(1)}`}
+                  class="thumbnail-btn aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-zoom-in"
+                  data-image={`${base}${getImagePath(image)}`}
                 >
                   <img
-                    src={`${base}/${image.slice(1)}`}
+                    src={`${base}${getImagePath(image)}`}
                     alt={`${product.data.title} - View ${index + 1}`}
                     class="w-full h-full object-cover"
                   />
@@ -130,6 +144,7 @@ const hasStock = product.data.variants
                         value={index}
                         data-price={variant.price}
                         data-weight={variant.weight}
+                        data-image={variant.image ? `${base}${getImagePath(variant.image)}` : ''}
                         checked={index === 0}
                         class="w-4 h-4 text-[#39441E] border-gray-300 focus:ring-[#39441E]"
                       />
@@ -209,7 +224,6 @@ const hasStock = product.data.variants
             {relatedProducts.map((relatedProduct) => (
               <ProductCard
                 title={relatedProduct.data.title}
-                description={relatedProduct.data.description}
                 price={relatedProduct.data.price}
                 category={relatedProduct.data.category}
                 slug={relatedProduct.slug}
@@ -224,36 +238,51 @@ const hasStock = product.data.variants
   </main>
 
   <Footer />
+
+  <!-- Image Zoom Modal -->
+  <div id="image-zoom-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 backdrop-blur-lg bg-white/30" style="backdrop-filter: blur(16px);">
+    <button id="close-zoom" class="absolute top-4 right-4 text-gray-800 hover:text-gray-600 transition-colors z-10 bg-white/50 backdrop-blur-sm rounded-full p-2">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <img id="zoomed-image" src="" alt="" class="max-w-full max-h-full object-contain shadow-2xl rounded-lg transition-opacity duration-200">
+  </div>
 </Layout>
 
 <script define:vars={{ productTitle: product.data.title, whatsappNumber: CONTACT.whatsapp }}>
   // Image gallery functionality
-  const mainImage = document.getElementById('main-image') as HTMLImageElement;
+  const mainImage = document.getElementById('main-image');
   const thumbnailBtns = document.querySelectorAll('.thumbnail-btn');
 
   thumbnailBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const imageUrl = btn.getAttribute('data-image');
-      if (imageUrl && mainImage) {
-        mainImage.src = imageUrl;
+      const modal = document.getElementById('image-zoom-modal');
+      const zoomedImg = document.getElementById('zoomed-image');
 
-        // Update active state
-        thumbnailBtns.forEach(b => b.classList.remove('border-[#39441E]'));
-        btn.classList.add('border-[#39441E]');
+      if (imageUrl && zoomedImg && modal) {
+        // Hide the image while loading to prevent flash
+        zoomedImg.style.opacity = '0';
+        zoomedImg.src = imageUrl;
+        zoomedImg.alt = mainImage?.alt || '';
+
+        // Wait for image to load before showing modal
+        zoomedImg.onload = () => {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+          zoomedImg.style.opacity = '1';
+        };
       }
     });
   });
 
-  // Set first thumbnail as active
-  if (thumbnailBtns.length > 0) {
-    thumbnailBtns[0].classList.add('border-[#39441E]');
-  }
-
   // WhatsApp order link functionality
-  const whatsappBtn = document.getElementById('whatsapp-order-btn') as HTMLAnchorElement;
+  const whatsappBtn = document.getElementById('whatsapp-order-btn');
 
   function updateWhatsAppLink() {
-    const selectedVariant = document.querySelector('input[name="variant"]:checked') as HTMLInputElement;
+    const selectedVariant = document.querySelector('input[name="variant"]:checked');
     let variantText = '';
 
     if (selectedVariant) {
@@ -277,11 +306,26 @@ const hasStock = product.data.variants
 
   variantInputs.forEach((input) => {
     input.addEventListener('change', (e) => {
-      const target = e.target as HTMLInputElement;
+      const target = e.target;
       const price = target.getAttribute('data-price');
+      const variantImage = target.getAttribute('data-image');
 
       if (price && currentPriceEl) {
         currentPriceEl.textContent = price;
+      }
+
+      // Update main image if variant has an associated image
+      if (variantImage && variantImage.trim() !== '' && mainImage) {
+        mainImage.src = variantImage;
+
+        // Update thumbnail active state to match the variant image
+        thumbnailBtns.forEach(btn => {
+          const btnImage = btn.getAttribute('data-image');
+          if (btnImage === variantImage) {
+            thumbnailBtns.forEach(b => b.classList.remove('border-[#39441E]'));
+            btn.classList.add('border-[#39441E]');
+          }
+        });
       }
 
       // Update visual selection
@@ -301,7 +345,7 @@ const hasStock = product.data.variants
     });
   });
 
-  // Set initial selected variant styling
+  // Set initial selected variant styling and image
   const selectedVariant = document.querySelector('input[name="variant"]:checked');
   if (selectedVariant) {
     const parentLabel = selectedVariant.closest('.variant-option');
@@ -309,10 +353,75 @@ const hasStock = product.data.variants
       parentLabel.classList.add('border-gray-400', 'bg-gray-50');
       parentLabel.classList.remove('border-gray-200');
     }
+
+    // Set initial variant image if it exists
+    const initialVariantImage = selectedVariant.getAttribute('data-image');
+    if (initialVariantImage && initialVariantImage.trim() !== '' && mainImage) {
+      mainImage.src = initialVariantImage;
+
+      // Update thumbnail active state to match
+      thumbnailBtns.forEach(btn => {
+        const btnImage = btn.getAttribute('data-image');
+        if (btnImage === initialVariantImage) {
+          thumbnailBtns.forEach(b => b.classList.remove('border-[#39441E]'));
+          btn.classList.add('border-[#39441E]');
+        }
+      });
+    }
   }
 
   // Initialize WhatsApp link
   updateWhatsAppLink();
+
+  // Image zoom functionality
+  const mainImageContainer = document.getElementById('main-image-container');
+  const zoomModal = document.getElementById('image-zoom-modal');
+  const zoomedImage = document.getElementById('zoomed-image');
+  const closeZoomBtn = document.getElementById('close-zoom');
+
+  mainImageContainer?.addEventListener('click', () => {
+    const currentImage = mainImage?.src;
+    if (currentImage && zoomedImage && zoomModal) {
+      // Hide the image while loading to prevent flash
+      zoomedImage.style.opacity = '0';
+      zoomedImage.src = currentImage;
+      zoomedImage.alt = mainImage?.alt || '';
+
+      // Wait for image to load before showing modal
+      zoomedImage.onload = () => {
+        zoomModal.classList.remove('hidden');
+        zoomModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        zoomedImage.style.opacity = '1';
+      };
+    }
+  });
+
+  closeZoomBtn?.addEventListener('click', () => {
+    if (zoomModal) {
+      zoomModal.classList.add('hidden');
+      zoomModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Close on backdrop click
+  zoomModal?.addEventListener('click', (e) => {
+    if (e.target === zoomModal) {
+      zoomModal.classList.add('hidden');
+      zoomModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && zoomModal && !zoomModal.classList.contains('hidden')) {
+      zoomModal.classList.add('hidden');
+      zoomModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+  });
 </script>
 
 <style>

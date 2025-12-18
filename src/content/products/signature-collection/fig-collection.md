@@ -3,8 +3,8 @@ title: "Fig Collection"
 price: 870
 category: "signature-collection"
 images:
-  - "/images/products/signature-collection/figs-1.jpg"
-  - "/images/products/signature-collection/figs-2.jpg"
+  - "figs-1.jpg"
+  - "figs-2.jpg"
 featured: true
 inStock: false
 weight: "8 pcs"
@@ -14,10 +14,12 @@ variants:
     weight: "8 pcs"
     price: 870
     inStock: false
+    image: "figs-1.jpg"
   - size: "12 pcs"
     weight: "12 pcs"
     price: 1270
     inStock: false
+    image: "figs-2.jpg"
 ---
 
 Figs - Savour the luscious and exotic flavour of Afghani Figs stuffed with kesar infused roasted & salted almonds and pistachios & rose petals, taking your tastebuds on a sophisticated journey of the senses.

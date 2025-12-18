@@ -3,8 +3,8 @@ title: "Medley Collection 1"
 price: 870
 category: "signature-collection"
 images:
-  - "/images/products/signature-collection/medley-1.jpg"
-  - "/images/products/signature-collection/medley-2.jpg"
+  - "medley-1.jpg"
+  - "medley-2.jpg"
 featured: true
 inStock: true
 weight: "8 pcs"
@@ -14,10 +14,12 @@ variants:
     weight: "8 pcs"
     price: 870
     inStock: true
+    image: "medley-1.jpg"
   - size: "12 pcs"
     weight: "12 pcs"
     price: 1270
     inStock: true
+    image: "medley-2.jpg"
 ---
 
 Savour the luscious and exotic flavour of Afghani Figs stuffed with roasted & salted almonds, apricot & raisins stuffed Walnuts and stuffed Premium Medjool Dates creating a harmonious medley of flavours.

@@ -3,8 +3,8 @@ title: "Tower Set"
 price: 2590
 category: "festive-gifting"
 images:
-  - "/images/products/festive-gifting/tower-set-1.jpg"
-  - "/images/products/festive-gifting/tower-set-2.jpg"
+  - "tower-set-1.jpg"
+  - "tower-set-2.jpg"
 featured: true
 inStock: false
 weight: "1,250g"

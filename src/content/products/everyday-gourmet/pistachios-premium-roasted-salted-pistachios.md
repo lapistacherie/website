@@ -3,8 +3,8 @@ title: "Pistachios: Premium Roasted & Salted Pistachios"
 price: 420
 category: "everyday-gourmet"
 images:
-  - "/images/products/everyday-gourmet/pistachios-1.jpg"
-  - "/images/products/everyday-gourmet/pistachios-2.jpg"
+  - "pistachios-1.jpg"
+  - "pistachios-2.jpg"
 featured: true
 inStock: true
 weight: "250g"

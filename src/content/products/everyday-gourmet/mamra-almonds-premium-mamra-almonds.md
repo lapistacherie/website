@@ -3,8 +3,8 @@ title: "Mamra Almonds: Premium Mamra Almonds"
 price: 1770
 category: "everyday-gourmet"
 images:
-  - "/images/products/everyday-gourmet/mamra-almonds-1.jpg"
-  - "/images/products/everyday-gourmet/mamra-almonds-2.jpg"
+  - "mamra-almonds-1.jpg"
+  - "mamra-almonds-2.jpg"
 featured: true
 inStock: false
 weight: "500g"

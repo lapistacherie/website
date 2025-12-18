@@ -3,9 +3,9 @@ title: "Cranberries"
 price: 190
 category: "jar-collection"
 images:
-  - "/images/products/jar-collection/cranberries-1.jpg"
-  - "/images/products/jar-collection/cranberries-2.jpg"
-  - "/images/products/jar-collection/cranberries-3.jpg"
+  - "cranberries-1.jpg"
+  - "cranberries-2.jpg"
+  - "cranberries-3.jpg"
 featured: false
 inStock: true
 weight: "100g"
@@ -15,10 +15,12 @@ variants:
     weight: "100g"
     price: 190
     inStock: true
+    image: "cranberries-1.jpg"
   - size: "200 gms"
     weight: "200g"
     price: 300
     inStock: true
+    image: "cranberries-2.jpg"
 ---
 
 Jar contains Dried Whole Cranberries.

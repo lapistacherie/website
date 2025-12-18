@@ -3,8 +3,8 @@ title: "Walnut Collection"
 price: 870
 category: "signature-collection"
 images:
-  - "/images/products/signature-collection/walnuts-1.jpg"
-  - "/images/products/signature-collection/walnuts-2.jpg"
+  - "walnuts-1.jpg"
+  - "walnuts-2.jpg"
 featured: true
 inStock: true
 weight: "8 pcs"
@@ -14,10 +14,12 @@ variants:
     weight: "8 pcs"
     price: 870
     inStock: true
+    image: "walnuts-1.jpg"
   - size: "12 pcs"
     weight: "12 pcs"
     price: 1270
     inStock: true
+    image: "walnuts-2.jpg"
 ---
 
 Walnuts make for the tastiest all-rounder nut! Savour the luscious and exotic flavour of Chilean Walnuts stuffed with kesar, elaichi infused apricot & raisins, taking your taste buds on a sophisticated journey of the senses.

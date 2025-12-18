@@ -3,10 +3,10 @@ title: "Date Collection"
 price: 1000
 category: "signature-collection"
 images:
-  - "/images/products/signature-collection/dates-1.jpg"
-  - "/images/products/signature-collection/dates-2.jpg"
-  - "/images/products/signature-collection/dates-3.jpg"
-  - "/images/products/signature-collection/dates-4.jpg"
+  - "dates-1.jpg"
+  - "dates-2.jpg"
+  - "dates-3.jpg"
+  - "dates-4.jpg"
 featured: true
 inStock: true
 weight: "10 pcs"
@@ -16,18 +16,22 @@ variants:
     weight: "10 pcs"
     price: 1000
     inStock: true
+    image: "dates-1.jpg"
   - size: "21 pcs"
     weight: "21 pcs"
     price: 1720
     inStock: true
+    image: "dates-2.jpg"
   - size: "Premium Medjool Dates"
     weight: "24 pcs"
     price: 1090
     inStock: true
+    image: "dates-3.jpg"
   - size: "Royal Box"
     weight: "16 pcs"
     price: 1590
     inStock: true
+    image: "dates-4.jpg"
 ---
 
 Dates - Often referred to as the "King of Dates", Medjool Dates are a prized fruit known for their large size and soft texture.

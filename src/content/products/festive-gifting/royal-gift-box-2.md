@@ -3,9 +3,9 @@ title: "Royal Gift Box 2"
 price: 1950
 category: "festive-gifting"
 images:
-  - "/images/products/festive-gifting/royal-box-2-1.jpg"
-  - "/images/products/festive-gifting/royal-box-2-2.jpg"
-  - "/images/products/festive-gifting/royal-box-2-3.jpg"
+  - "royal-box-2-1.jpg"
+  - "royal-box-2-2.jpg"
+  - "royal-box-2-3.jpg"
 featured: true
 inStock: true
 weight: "16 pcs + 500mg Kashmiri Kesar"

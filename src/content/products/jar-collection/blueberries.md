@@ -3,9 +3,9 @@ title: "Blueberries"
 price: 290
 category: "jar-collection"
 images:
-  - "/images/products/jar-collection/blueberries-1.jpg"
-  - "/images/products/jar-collection/blueberries-2.jpg"
-  - "/images/products/jar-collection/blueberries-3.jpg"
+  - "blueberries-1.jpg"
+  - "blueberries-2.jpg"
+  - "blueberries-3.jpg"
 featured: true
 inStock: true
 weight: "100g"
@@ -15,10 +15,12 @@ variants:
     weight: "100g"
     price: 290
     inStock: true
+    image: "blueberries-1.jpg"
   - size: "200 gms"
     weight: "200g"
     price: 510
     inStock: true
+    image: "blueberries-2.jpg"
 ---
 
 Jar contains Dried Blueberries. Blueberries are a nutritional powerhouse, offering an array of health benefits. They are low in calories, high in fibre and also rich in antioxidants.

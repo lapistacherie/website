@@ -3,8 +3,8 @@ title: "Walnuts: Premium Chilean Walnuts"
 price: 1090
 category: "everyday-gourmet"
 images:
-  - "/images/products/everyday-gourmet/walnuts-1.jpg"
-  - "/images/products/everyday-gourmet/walnuts-2.jpg"
+  - "walnuts-1.jpg"
+  - "walnuts-2.jpg"
 featured: true
 inStock: true
 weight: "500g"

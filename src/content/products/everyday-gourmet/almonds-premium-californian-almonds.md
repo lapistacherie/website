@@ -3,8 +3,8 @@ title: "Almonds: Premium Californian Almonds"
 price: 640
 category: "everyday-gourmet"
 images:
-  - "/images/products/everyday-gourmet/almonds-1.jpg"
-  - "/images/products/everyday-gourmet/almonds-2.jpg"
+  - "almonds-1.jpg"
+  - "almonds-2.jpg"
 featured: true
 inStock: true
 weight: "500g"

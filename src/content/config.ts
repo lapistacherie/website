@@ -17,6 +17,7 @@ const productsCollection = defineCollection({
       weight: z.string(),
       price: z.number(),
       inStock: z.boolean().default(true),
+      image: z.string().optional(),
     })).optional(),
   }),
 });
