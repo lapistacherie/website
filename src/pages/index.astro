@@ -17,25 +17,21 @@ const collections = [
   {
     name: 'Everyday Gourmet',
     slug: 'everyday-gourmet',
-    description: 'Daily delights for the gourmet enthusiast',
     image: `${base}/images/collections/everyday-gourmet.jpg`,
   },
   {
     name: 'Jar Collection',
     slug: 'jar-collection',
-    description: 'Premium selections in elegant reusable jars',
     image: `${base}/images/collections/jar-collection.jpg`,
   },
   {
     name: 'Signature Collection',
     slug: 'signature-collection',
-    description: 'Curated luxury blends for discerning tastes',
     image: `${base}/images/collections/signature-collection.jpg`,
   },
   {
     name: 'Festive Gifting',
     slug: 'festive-gifting',
-    description: 'Celebrate special moments with thoughtful gifts',
     image: `${base}/images/collections/festive-gifting.jpg`,
   },
 ];
@@ -129,10 +125,9 @@ const collections = [
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-end">
                   <div class="text-white p-6 w-full">
                     <h3 class="text-2xl font-bold mb-2">{collection.name}</h3>
-                    <p class="text-sm opacity-90">{collection.description}</p>
                   </div>
                 </div>
               </div>
