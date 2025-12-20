@@ -86,7 +86,15 @@ const keywords = product.data.tags ? product.data.tags.join(", ") : undefined;
           href={`${base}/products/${product.data.category}`}
           class="hover:text-[#39441E]"
         >
-          {product.data.category}
+          {
+            product.data.category
+              .split("-")
+              .map(
+                (word) =>
+                  word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+              )
+              .join(" ")
+          }
         </a>
         <span class="mx-2">/</span>
         <span class="text-gray-900">{product.data.title}</span>
@@ -251,7 +259,10 @@ const keywords = product.data.tags ? product.data.tags.join(", ") : undefined;
                   slug={relatedProduct.slug}
                   image={relatedProduct.data.images[0]}
                   featured={relatedProduct.data.featured}
-                  hasVariants={relatedProduct.data.variants && relatedProduct.data.variants.length > 0}
+                  hasVariants={
+                    relatedProduct.data.variants &&
+                    relatedProduct.data.variants.length > 1
+                  }
                 />
               ))}
             </div>
