@@ -7,7 +7,7 @@ images:
   - "mix-berries-2.jpg"
   - "mix-berries-3.jpg"
 featured: true
-inStock: false
+inStock: true
 weight: "100g"
 tags: ["mixed berries", "cranberries", "blueberries", "dried fruit"]
 variants:

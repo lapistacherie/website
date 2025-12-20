@@ -6,19 +6,19 @@ images:
   - "figs-1.jpg"
   - "figs-2.jpg"
 featured: true
-inStock: false
+inStock: true
 weight: "8 pcs"
 tags: ["figs", "afghani", "stuffed figs", "handmade", "premium"]
 variants:
   - size: "8 pcs"
     weight: "8 pcs"
     price: 870
-    inStock: false
+    inStock: true
     image: "figs-1.jpg"
   - size: "12 pcs"
     weight: "12 pcs"
     price: 1270
-    inStock: false
+    inStock: true
     image: "figs-2.jpg"
 ---
 

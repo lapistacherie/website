@@ -6,7 +6,7 @@ images:
   - "tower-set-1.jpg"
   - "tower-set-2.jpg"
 featured: true
-inStock: false
+inStock: true
 weight: "1,250g"
 tags: ["tower set", "festive", "gift box", "dates", "figs", "walnuts", "premium"]
 ---
