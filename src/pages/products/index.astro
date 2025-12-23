@@ -8,6 +8,13 @@ import { getCollection } from 'astro:content';
 const base = import.meta.env.BASE_URL;
 
 const allProducts = await getCollection('products');
+const allCategories = await getCollection('categories');
+
+// Create a map of category ID to category name
+const categoryLabels = allCategories.reduce((acc, cat) => {
+  acc[cat.data.id] = cat.data.name;
+  return acc;
+}, {} as Record<string, string>);
 
 // Group products by category
 const productsByCategory = allProducts.reduce((acc, product) => {
@@ -18,13 +25,6 @@ const productsByCategory = allProducts.reduce((acc, product) => {
   acc[category].push(product);
   return acc;
 }, {} as Record<string, typeof allProducts>);
-
-const categoryLabels: Record<string, string> = {
-  'everyday-gourmet': 'Everyday Gourmet',
-  'jar-collection': 'Jar Collection',
-  'signature-collection': 'Signature Collection',
-  'festive-gifting': 'Festive Gifting',
-};
 ---
 
 <Layout title="All Products - La Pistacherie">

@@ -1,8 +1,12 @@
 ---
 import { CONTACT, SOCIAL_MEDIA, COMPANY } from '../constants';
+import { getCollection } from 'astro:content';
 
 const base = import.meta.env.BASE_URL;
 const currentYear = new Date().getFullYear();
+
+// Get all categories dynamically for footer
+const allCategories = await getCollection('categories');
 ---
 
 <footer class="bg-white text-gray-900 mt-16 border-t border-gray-200">
@@ -44,10 +48,16 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="text-lg font-semibold mb-4 text-gray-900">Collections</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href={`${base}/products/everyday-gourmet`} class="text-gray-600 hover:text-[#39441E] transition-colors">Everyday Gourmet</a></li>
-          <li><a href={`${base}/products/jar-collection`} class="text-gray-600 hover:text-[#39441E] transition-colors">Jar Collection</a></li>
-          <li><a href={`${base}/products/signature-collection`} class="text-gray-600 hover:text-[#39441E] transition-colors">Signature Collection</a></li>
-          <li><a href={`${base}/products/festive-gifting`} class="text-gray-600 hover:text-[#39441E] transition-colors">Festive Gifting</a></li>
+          {allCategories.map(cat => (
+            <li>
+              <a
+                href={`${base}/products/${cat.data.id}`}
+                class="text-gray-600 hover:text-[#39441E] transition-colors"
+              >
+                {cat.data.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
