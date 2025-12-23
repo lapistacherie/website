@@ -47,7 +47,6 @@ collections:
     label_singular: "Product"
     folder: "src/content/products"
     create: true
-    slug: "{{category}}/{{slug}}"
     path: "{{category}}/{{slug}}"
     media_folder: "/public/images/products/{{category}}"
     public_folder: "/images/products/{{category}}"
