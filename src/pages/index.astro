@@ -17,22 +17,22 @@ const collections = [
   {
     name: 'Everyday Gourmet',
     slug: 'everyday-gourmet',
-    image: `${base}images/collections/everyday-gourmet.jpg`,
+    image: `${base}/images/collections/everyday-gourmet.jpg`,
   },
   {
     name: 'Jar Collection',
     slug: 'jar-collection',
-    image: `${base}images/collections/jar-collection.jpg`,
+    image: `${base}/images/collections/jar-collection.jpg`,
   },
   {
     name: 'Signature Collection',
     slug: 'signature-collection',
-    image: `${base}images/collections/signature-collection.jpg`,
+    image: `${base}/images/collections/signature-collection.jpg`,
   },
   {
     name: 'Festive Gifting',
     slug: 'festive-gifting',
-    image: `${base}images/collections/festive-gifting.jpg`,
+    image: `${base}/images/collections/festive-gifting.jpg`,
   },
 ];
 ---
@@ -61,7 +61,7 @@ const collections = [
           </div>
           <div class="order-1 lg:order-2">
             <img
-              src={`${base}images/gift-tradition.jpg`}
+              src={`${base}/images/gift-tradition.jpg`}
               alt="A Gift of Health, Wealth, and Tradition"
               class="rounded-lg shadow-lg w-full h-auto"
               loading="lazy"
@@ -116,7 +116,7 @@ const collections = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {collections.map((collection) => (
             <a
-              href={`${base}products/${collection.slug}`}
+              href={`${base}/products/${collection.slug}`}
               class="group bg-white rounded-lg overflow-hidden border border-[#D4AF37]/30 shadow-sm hover:shadow-[0_8px_30px_rgb(212,175,55,0.15)] hover:border-[#D4AF37] transition-all duration-300"
             >
               <div class="aspect-square relative overflow-hidden">
@@ -171,7 +171,7 @@ const collections = [
               class="w-full"
               controls
               preload="metadata"
-              poster={`${base}videos/our-story-poster.jpg`}
+              poster={`${base}/videos/our-story-poster.jpg`}
             >
               <source src="https://lapistacherie.in/cdn/shop/videos/c/vp/fc16e720837f44d2a3f76377f0c025cb/fc16e720837f44d2a3f76377f0c025cb.HD-1080p-7.2Mbps-18487939.mp4" type="video/mp4" />
               Your browser does not support the video tag.

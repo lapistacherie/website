@@ -2,21 +2,21 @@
 const base = import.meta.env.BASE_URL;
 
 const navItems = [
-  { name: 'Home', href: `${base}` },
+  { name: 'Home', href: `${base}/` },
   {
     name: 'Our Products',
-    href: `${base}products`,
+    href: `${base}/products`,
     dropdown: [
-      { name: 'Everyday Gourmet', href: `${base}products/everyday-gourmet` },
-      { name: 'Jar Collection', href: `${base}products/jar-collection` },
-      { name: 'Signature Collection', href: `${base}products/signature-collection` },
-      { name: 'Festive Gifting', href: `${base}products/festive-gifting` },
-      { name: 'View All Products', href: `${base}products` },
+      { name: 'Everyday Gourmet', href: `${base}/products/everyday-gourmet` },
+      { name: 'Jar Collection', href: `${base}/products/jar-collection` },
+      { name: 'Signature Collection', href: `${base}/products/signature-collection` },
+      { name: 'Festive Gifting', href: `${base}/products/festive-gifting` },
+      { name: 'View All Products', href: `${base}/products` },
     ]
   },
-  { name: 'About Us', href: `${base}about` },
-  { name: 'Personalised Gifting', href: `${base}personalised-gifting` },
-  { name: 'Contact Us', href: `${base}contact` },
+  { name: 'About Us', href: `${base}/about` },
+  { name: 'Personalised Gifting', href: `${base}/personalised-gifting` },
+  { name: 'Contact Us', href: `${base}/contact` },
 ];
 ---
 
@@ -26,7 +26,7 @@ const navItems = [
       <!-- Logo -->
       <a href={base} class="flex items-center">
         <img
-          src={`${base}images/logo.png`}
+          src={`${base}/images/logo.png`}
           alt="La Pistacherie"
           class="h-12 md:h-14 w-auto"
         />
@@ -71,7 +71,7 @@ const navItems = [
 
         <!-- Search Icon -->
         <a
-          href={`${base}search`}
+          href={`${base}/search`}
           class="text-gray-700 hover:text-[#39441E] transition-colors"
           aria-label="Search"
         >
