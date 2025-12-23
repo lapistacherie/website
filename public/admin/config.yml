@@ -1,0 +1,153 @@
+backend:
+  name: github
+  repo: lapistacherie/website
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: "public/images/products"
+public_folder: "/website/images/products"
+
+collections:
+  - name: "categories"
+    label: "Categories"
+    label_singular: "Category"
+    folder: "src/content/categories"
+    create: true
+    identifier_field: "id"
+    slug: "{{id}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{name}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Category ID"
+        name: "id"
+        widget: "string"
+        hint: "URL-friendly folder name (e.g., 'holiday-specials'). Use lowercase with hyphens only."
+      - label: "Display Name"
+        name: "name"
+        widget: "string"
+        hint: "Human-friendly name shown on site (e.g., 'Holiday Specials')"
+      - label: "Header Image"
+        name: "image"
+        widget: "image"
+        media_folder: "/public/images/collections"
+        public_folder: "/website/images/collections"
+        hint: "Banner image for category page"
+      - label: "Description"
+        name: "body"
+        widget: "markdown"
+        required: false
+        hint: "Optional category description"
+
+  - name: "products"
+    label: "Products"
+    label_singular: "Product"
+    folder: "src/content/products"
+    create: true
+    slug: "{{category}}/{{slug}}"
+    path: "{{category}}/{{slug}}"
+    media_folder: "public/images/products/{{category}}"
+    public_folder: "/website/images/products/{{category}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Category"
+        name: "category"
+        widget: "relation"
+        collection: "categories"
+        search_fields: ["id", "name"]
+        value_field: "id"
+        display_fields: ["name"]
+        hint: "Select the category. To add new categories, go to Categories section first."
+
+      - label: "Product Title"
+        name: "title"
+        widget: "string"
+        hint: "The name of the product (e.g., 'Date Collection')"
+
+      - label: "Base Price"
+        name: "price"
+        widget: "number"
+        value_type: "int"
+        min: 0
+        hint: "Base price in rupees (e.g., 1000)"
+
+      - label: "Product Images"
+        name: "images"
+        widget: "list"
+        hint: "Upload or select product images. First image will be the main thumbnail."
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+          media_folder: "/public/images/products/{{category}}"
+          public_folder: "/website/images/products/{{category}}"
+
+      - label: "Featured Product"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Show this product on the homepage?"
+
+      - label: "In Stock"
+        name: "inStock"
+        widget: "boolean"
+        default: true
+        hint: "Is this product currently available?"
+
+      - label: "Weight/Quantity"
+        name: "weight"
+        widget: "string"
+        required: false
+        hint: "Product weight or quantity (e.g., '10 pcs', '500g')"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "Keywords for this product (e.g., 'premium', 'dates', 'handmade')"
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "string"
+
+      - label: "Product Variants"
+        name: "variants"
+        widget: "list"
+        required: false
+        hint: "Add different sizes or options for this product"
+        collapsed: true
+        fields:
+          - label: "Size/Option Name"
+            name: "size"
+            widget: "string"
+            hint: "Name of this variant (e.g., 'Small Box', 'Large Box')"
+          - label: "Weight/Quantity"
+            name: "weight"
+            widget: "string"
+            hint: "Weight or quantity for this variant (e.g., '10 pcs')"
+          - label: "Price"
+            name: "price"
+            widget: "number"
+            value_type: "int"
+            min: 0
+            hint: "Price for this variant"
+          - label: "In Stock"
+            name: "inStock"
+            widget: "boolean"
+            default: true
+          - label: "Variant Image"
+            name: "image"
+            widget: "image"
+            required: false
+            media_folder: "/public/images/products/{{category}}"
+            public_folder: "/website/images/products/{{category}}"
+            hint: "Upload or select an image for this variant"
+
+      - label: "Product Description"
+        name: "body"
+        widget: "markdown"
+        hint: "Full description of the product. You can use formatting, headings, and lists."

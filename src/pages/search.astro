@@ -63,7 +63,10 @@ const allProducts = await getCollection('products');
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         ${products.map(product => {
           const hasVariants = product.data.variants && product.data.variants.length > 0;
-          const imagePath = `${base}/images/products/${product.data.category}/${product.data.images[0]}`;
+          const imageFile = product.data.images[0];
+          const imagePath = (imageFile.startsWith('/') || imageFile.startsWith('http'))
+            ? imageFile
+            : `${base}/images/products/${product.data.category}/${imageFile}`;
           const priceText = hasVariants ? 'From ' : '';
           const formattedPrice = product.data.price.toFixed(2);
 
