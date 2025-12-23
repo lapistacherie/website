@@ -9,6 +9,8 @@ interface Props {
 }
 
 const { title, description = "La Pistacherie - Premium Dry Fruits and Nuts", keywords } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -18,7 +20,14 @@ const { title, description = "La Pistacherie - Premium Dry Fruits and Nuts", key
     <meta name="description" content={description} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}/apple-touch-icon.png`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}/favicon-32x32.png`} />
+    <link rel="icon" type="image/png" sizes="16x16" href={`${base}/favicon-16x16.png`} />
+    <link rel="manifest" href={`${base}/site.webmanifest`} />
+    <meta name="theme-color" content="#39441E" />
+
     <meta name="generator" content={Astro.generator} />
 
     <!-- Google Fonts - Premium Options -->
