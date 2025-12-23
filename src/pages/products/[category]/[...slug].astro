@@ -36,7 +36,7 @@ const relatedProducts = allProducts
   .slice(0, 4);
 
 // Generate initial WhatsApp URL
-const initialVariant = product.data.variants
+const initialVariant = product.data.variants && product.data.variants.length > 0
   ? product.data.variants[0].size
   : product.data.weight || "";
 const variantText = initialVariant ? ` (${initialVariant})` : "";
@@ -44,7 +44,7 @@ const initialMessage = `Hi! I would like to order *${product.data.title}${varian
 const initialWhatsAppUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(initialMessage)}`;
 
 // Check if product has any stock available
-const hasStock = product.data.variants
+const hasStock = product.data.variants && product.data.variants.length > 0
   ? product.data.variants.some((v) => v.inStock)
   : product.data.inStock;
 
@@ -57,7 +57,7 @@ const getImagePath = (imageName: string) =>
 
 // Get initial image - use first variant's image if it exists, otherwise first product image
 const initialImage =
-  product.data.variants && product.data.variants[0]?.image
+  product.data.variants && product.data.variants.length > 0 && product.data.variants[0]?.image
     ? getImagePath(product.data.variants[0].image)
     : getImagePath(product.data.images[0]);
 
