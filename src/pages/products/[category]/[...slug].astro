@@ -51,9 +51,9 @@ const hasStock = product.data.variants
 // Helper function to build full image path
 // Handle both old format (filename only) and new format (full path from CMS)
 const getImagePath = (imageName: string) =>
-  imageName.startsWith('/') || imageName.startsWith('http')
+  imageName.startsWith("/") || imageName.startsWith("http")
     ? imageName
-    : `/images/products/${product.data.category}/${imageName}`;
+    : `${base}images/products/${product.data.category}/${imageName}`;
 
 // Get initial image - use first variant's image if it exists, otherwise first product image
 const initialImage =
@@ -83,10 +83,10 @@ const keywords = product.data.tags ? product.data.tags.join(", ") : undefined;
       <nav class="mb-8 text-sm text-gray-600">
         <a href={base} class="hover:text-[#39441E]">Home</a>
         <span class="mx-2">/</span>
-        <a href={`${base}/products`} class="hover:text-[#39441E]">Products</a>
+        <a href={`${base}products`} class="hover:text-[#39441E]">Products</a>
         <span class="mx-2">/</span>
         <a
-          href={`${base}/products/${product.data.category}`}
+          href={`${base}products/${product.data.category}`}
           class="hover:text-[#39441E]"
         >
           {
@@ -114,7 +114,7 @@ const keywords = product.data.tags ? product.data.tags.join(", ") : undefined;
           >
             <img
               id="main-image"
-              src={`${base}${initialImage}`}
+              src={initialImage}
               alt={product.data.title}
               class="w-full h-full object-cover"
             />
@@ -127,10 +127,10 @@ const keywords = product.data.tags ? product.data.tags.join(", ") : undefined;
                 {thumbnailImages.map((image, index) => (
                   <button
                     class="thumbnail-btn aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-zoom-in"
-                    data-image={`${base}${getImagePath(image)}`}
+                    data-image={getImagePath(image)}
                   >
                     <img
-                      src={`${base}${getImagePath(image)}`}
+                      src={getImagePath(image)}
                       alt={`${product.data.title} - View ${index + 1}`}
                       class="w-full h-full object-cover"
                     />
@@ -169,7 +169,7 @@ const keywords = product.data.tags ? product.data.tags.join(", ") : undefined;
                         data-weight={variant.weight}
                         data-image={
                           variant.image
-                            ? `${base}${getImagePath(variant.image)}`
+                            ? getImagePath(variant.image)
                             : ""
                         }
                         checked={index === 0}

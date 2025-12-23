@@ -5,21 +5,21 @@ const slides = [
   {
     title: "Premium Dry Fruits & Nuts",
     description: "Discover our curated selection of finest quality dry fruits",
-    image: "/images/hero-1.jpg",
+    image: "images/hero-1.jpg",
     cta: "Shop Now",
     link: "/products"
   },
   {
     title: "Perfect for Gifting",
     description: "Beautifully packaged collections for every occasion",
-    image: "/images/hero-2.jpg",
+    image: "images/hero-2.jpg",
     cta: "View Collections",
     link: "/products/festive-gifting"
   },
   {
     title: "Signature Collections",
     description: "Experience luxury with our premium signature blends",
-    image: "/images/hero-3.jpg",
+    image: "images/hero-3.jpg",
     cta: "Explore",
     link: "/products/signature-collection"
   }
@@ -34,7 +34,7 @@ const slides = [
           <div class="absolute inset-0 bg-linear-to-r from-black/60 to-black/30 z-10"></div>
           <div
             class="w-full h-full bg-cover bg-center"
-            style={`background-image: url('${base}/${slide.image}'); background-color: #39441E;`}
+            style={`background-image: url('${base}${slide.image}'); background-color: #39441E;`}
           ></div>
           <div class="absolute inset-0 z-20 flex items-center">
             <div class="container mx-auto px-4 max-w-7xl">
