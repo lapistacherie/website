@@ -1,11 +1,20 @@
 import { defineCollection, z } from 'astro:content';
 
+const categoriesCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    id: z.string(),
+    name: z.string(),
+    image: z.string(),
+  }),
+});
+
 const productsCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
     price: z.number(),
-    category: z.enum(['everyday-gourmet', 'jar-collection', 'signature-collection', 'festive-gifting']),
+    category: z.string(), // Now accepts any string (category IDs are dynamic)
     images: z.array(z.string()),
     featured: z.boolean().default(false),
     inStock: z.boolean().default(true),
@@ -23,5 +32,6 @@ const productsCollection = defineCollection({
 });
 
 export const collections = {
+  categories: categoriesCollection,
   products: productsCollection,
 };

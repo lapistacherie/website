@@ -9,43 +9,30 @@ const base = import.meta.env.BASE_URL;
 
 export async function getStaticPaths() {
   const allProducts = await getCollection('products');
+  const allCategories = await getCollection('categories');
 
-  const categories = ['everyday-gourmet', 'jar-collection', 'signature-collection', 'festive-gifting'];
-
-  return categories.map(category => {
+  return allCategories.map(categoryEntry => {
+    const categoryId = categoryEntry.data.id;
     const categoryProducts = allProducts.filter(
-      product => product.data.category === category
+      product => product.data.category === categoryId
     );
 
     return {
-      params: { category },
-      props: { products: categoryProducts, category },
+      params: { category: categoryId },
+      props: {
+        products: categoryProducts,
+        categoryData: categoryEntry.data
+      },
     };
   });
 }
 
-const { products, category } = Astro.props;
+const { products, categoryData } = Astro.props;
 
-const categoryInfo: Record<string, { title: string; image: string }> = {
-  'everyday-gourmet': {
-    title: 'Everyday Gourmet',
-    image: `${base}/images/collections/everyday-gourmet.jpg`,
-  },
-  'jar-collection': {
-    title: 'Jar Collection',
-    image: `${base}/images/collections/jar-collection.jpg`,
-  },
-  'signature-collection': {
-    title: 'Signature Collection',
-    image: `${base}/images/collections/signature-collection.jpg`,
-  },
-  'festive-gifting': {
-    title: 'Festive Gifting',
-    image: `${base}/images/collections/festive-gifting.jpg`,
-  },
+const info = {
+  title: categoryData.name,
+  image: categoryData.image.startsWith('/') ? categoryData.image : `${base}${categoryData.image}`
 };
-
-const info = categoryInfo[category] || { title: category, image: '' };
 ---
 
 <Layout title={`${info.title} - La Pistacherie`}>

@@ -49,8 +49,11 @@ const hasStock = product.data.variants
   : product.data.inStock;
 
 // Helper function to build full image path
+// Handle both old format (filename only) and new format (full path from CMS)
 const getImagePath = (imageName: string) =>
-  `/images/products/${product.data.category}/${imageName}`;
+  imageName.startsWith('/') || imageName.startsWith('http')
+    ? imageName
+    : `/images/products/${product.data.category}/${imageName}`;
 
 // Get initial image - use first variant's image if it exists, otherwise first product image
 const initialImage =
