@@ -7,55 +7,57 @@ const slides = [
     description: "Discover our curated selection of finest quality dry fruits",
     image: "images/hero-1.jpg",
     cta: "Shop Now",
-    link: "/products"
+    link: "/products",
   },
   {
     title: "Perfect for Gifting",
     description: "Beautifully packaged collections for every occasion",
     image: "images/hero-2.jpg",
     cta: "View Collections",
-    link: "/products/festive-gifting"
+    link: "/products/festive-gifting",
   },
   {
     title: "Signature Collections",
     description: "Experience luxury with our premium signature blends",
     image: "images/hero-3.jpg",
     cta: "Explore",
-    link: "/products/signature-collection"
-  }
+    link: "/products/signature-collection",
+  },
 ];
 ---
 
-<div class="hero-slider relative w-full h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
+<div
+  class="hero-slider relative w-full h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden"
+>
   <div class="swiper h-full">
     <div class="swiper-wrapper">
-      {slides.map((slide, index) => (
-        <div class="swiper-slide relative">
-          <div class="absolute inset-0 bg-linear-to-r from-black/60 to-black/30 z-10"></div>
-          <div
-            class="w-full h-full bg-cover bg-center"
-            style={`background-image: url('/${slide.image}'); background-color: #39441E;`}
-          ></div>
-          <div class="absolute inset-0 z-20 flex items-center">
-            <div class="container mx-auto px-4 max-w-7xl">
-              <div class="max-w-2xl text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">
-                  {slide.title}
-                </h1>
-                <p class="text-xl md:text-2xl mb-8">
-                  {slide.description}
-                </p>
-                <a
-                  href={base.concat(slide.link)}
-                  class="inline-block bg-white text-[#39441E] px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
-                >
-                  {slide.cta}
-                </a>
+      {
+        slides.map((slide, index) => (
+          <div class="swiper-slide relative">
+            <div class="absolute inset-0 bg-linear-to-r from-black/60 to-black/30 z-10" />
+            <div
+              class="w-full h-full bg-cover bg-center"
+              style={`background-image: url('/${slide.image}'); background-color: #39441E;`}
+            />
+            <div class="absolute inset-0 z-20 flex items-center">
+              <div class="container mx-auto px-4 max-w-7xl">
+                <div class="max-w-2xl text-white">
+                  <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    {slide.title}
+                  </h1>
+                  <p class="text-xl md:text-2xl mb-8">{slide.description}</p>
+                  <a
+                    href={slide.link}
+                    class="inline-block bg-white text-[#39441E] px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
+                  >
+                    {slide.cta}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
     <!-- Navigation buttons -->
@@ -68,13 +70,13 @@ const slides = [
 </div>
 
 <script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-  import 'swiper/css';
-  import 'swiper/css/navigation';
-  import 'swiper/css/pagination';
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Autoplay } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
 
-  new Swiper('.swiper', {
+  new Swiper(".swiper", {
     modules: [Navigation, Pagination, Autoplay],
     loop: true,
     autoplay: {
@@ -82,11 +84,11 @@ const slides = [
       disableOnInteraction: false,
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
     pagination: {
-      el: '.swiper-pagination',
+      el: ".swiper-pagination",
       clickable: true,
     },
   });
@@ -94,7 +96,7 @@ const slides = [
 
 <style>
   :root {
-  --swiper-theme-color: #d4af37 !important;
+    --swiper-theme-color: #d4af37 !important;
   }
   .swiper-button-next,
   .swiper-button-prev {
