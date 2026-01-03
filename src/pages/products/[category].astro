@@ -31,7 +31,7 @@ const { products, categoryData } = Astro.props;
 
 const info = {
   title: categoryData.name,
-  image: categoryData.image.startsWith('/') ? categoryData.image : `${base}/${categoryData.image}`
+  image: categoryData.image.startsWith('/') ? categoryData.image : `/${categoryData.image}`
 };
 ---
 

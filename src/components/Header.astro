@@ -7,22 +7,22 @@ const base = import.meta.env.BASE_URL;
 const allCategories = await getCollection('categories');
 const categoryDropdown = allCategories.map(cat => ({
   name: cat.data.name,
-  href: `${base}/products/${cat.data.id}`
+  href: `/products/${cat.data.id}`
 }));
 
 // Add "View All Products" at the end
-categoryDropdown.push({ name: 'View All Products', href: `${base}/products` });
+categoryDropdown.push({ name: 'View All Products', href: `/products` });
 
 const navItems = [
-  { name: 'Home', href: `${base}/` },
+  { name: 'Home', href: `/` },
   {
     name: 'Our Products',
-    href: `${base}/products`,
+    href: `/products`,
     dropdown: categoryDropdown
   },
-  { name: 'About Us', href: `${base}/about` },
-  { name: 'Personalised Gifting', href: `${base}/personalised-gifting` },
-  { name: 'Contact Us', href: `${base}/contact` },
+  { name: 'About Us', href: `/about` },
+  { name: 'Personalised Gifting', href: `/personalised-gifting` },
+  { name: 'Contact Us', href: `/contact` },
 ];
 ---
 
@@ -32,7 +32,7 @@ const navItems = [
       <!-- Logo -->
       <a href={base} class="flex items-center">
         <img
-          src={`${base}/images/logo.png`}
+          src={`/images/logo.png`}
           alt="La Pistacherie"
           class="h-12 md:h-14 w-auto"
         />
@@ -77,7 +77,7 @@ const navItems = [
 
         <!-- Search Icon -->
         <a
-          href={`${base}/search`}
+          href={`/search`}
           class="text-gray-700 hover:text-[#39441E] transition-colors"
           aria-label="Search"
         >

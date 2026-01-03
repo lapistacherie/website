@@ -53,7 +53,7 @@ const hasStock = product.data.variants && product.data.variants.length > 0
 const getImagePath = (imageName: string) =>
   imageName.startsWith("/") || imageName.startsWith("http")
     ? imageName
-    : `${base}/images/products/${product.data.category}/${imageName}`;
+    : `/images/products/${product.data.category}/${imageName}`;
 
 // Get initial image - use first variant's image if it exists, otherwise first product image
 const initialImage =
@@ -83,10 +83,10 @@ const keywords = product.data.tags ? product.data.tags.join(", ") : undefined;
       <nav class="mb-8 text-sm text-gray-600">
         <a href={base} class="hover:text-[#39441E]">Home</a>
         <span class="mx-2">/</span>
-        <a href={`${base}/products`} class="hover:text-[#39441E]">Products</a>
+        <a href={`/products`} class="hover:text-[#39441E]">Products</a>
         <span class="mx-2">/</span>
         <a
-          href={`${base}/products/${product.data.category}`}
+          href={`/products/${product.data.category}`}
           class="hover:text-[#39441E]"
         >
           {
