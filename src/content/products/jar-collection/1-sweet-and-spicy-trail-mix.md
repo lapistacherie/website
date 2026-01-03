@@ -1,7 +1,7 @@
 ---
 category: jar-collection
 title: Sweet and Spicy Trail Mix
-price: 300
+price: 280
 images:
   - sweet-spicy-trail-mix-1.jpg
   - sweet-spicy-trail-mix-2.jpg
