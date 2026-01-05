@@ -1,7 +1,7 @@
 // Contact Information
 export const CONTACT = {
-  phone: "+91-9920067190",
-  whatsapp: "919920067190", // Format for wa.me links (no + or -)
+  phone: "+91-9004354993",
+  whatsapp: "919004354993", // Format for wa.me links (no + or -)
   email: {
     info: "support@lapistacherie.in",
     // Email address where contact form submissions will be sent
