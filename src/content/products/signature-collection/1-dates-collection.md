@@ -1,39 +1,44 @@
 ---
-title: "Date Collection"
+category: signature-collection
+title: Date Collection
 price: 1000
-category: "signature-collection"
 images:
-  - "dates-1.jpg"
-  - "dates-2.jpg"
-  - "dates-3.jpg"
-  - "dates-4.jpg"
-  - "simple-box.jpg"
-  - "medley2-2.jpg"
+  - dates-1.jpg
+  - dates-2.jpg
+  - dates-3.jpg
+  - dates-4.jpg
+  - simple-box.jpg
+  - 2.jpeg
 featured: true
 inStock: true
-weight: "10 pcs"
-tags: ["dates", "medjool", "stuffed dates", "premium", "handmade"]
+weight: 10 pcs
+tags:
+  - dates
+  - medjool
+  - stuffed dates
+  - premium
+  - handmade
 variants:
-  - size: "10 pcs"
-    weight: "10 pcs"
+  - size: 10 pcs
+    weight: 10 pcs
     price: 1000
     inStock: true
-    image: "dates-1.jpg"
-  - size: "21 pcs"
-    weight: "21 pcs"
+    image: dates-1.jpg
+  - size: 21 pcs
+    weight: 21 pcs
     price: 1720
     inStock: true
-    image: "dates-2.jpg"
-  - size: "Premium Medjool Dates"
-    weight: "24 pcs"
+    image: dates-2.jpg
+  - size: Premium Medjool Dates
+    weight: 24 pcs
     price: 1090
     inStock: true
-    image: "dates-3.jpg"
-  - size: "Royal Box"
-    weight: "16 pcs"
+    image: dates-3.jpg
+  - size: Royal Box
+    weight: 16 pcs
     price: 1590
     inStock: true
-    image: "dates-4.jpg"
+    image: dates-4.jpg
 ---
 
 Dates - Often referred to as the "King of Dates", Medjool Dates are a prized fruit known for their large size and soft texture. Savour the luscious and exotic flavour of Premium Medjool Dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries, caramelized pecans & rose petals, raw honey & elaichi infused pistachios and walnuts, taking your tastebuds on a sophisticated journey of the senses.
