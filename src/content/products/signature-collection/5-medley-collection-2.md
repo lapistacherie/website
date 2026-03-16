@@ -1,14 +1,19 @@
 ---
-title: "Medley Collection 2"
+category: signature-collection
+title: Medley Collection 2
 price: 1590
-category: "signature-collection"
 images:
-  - "medley2-1.jpg"
-  - "medley2-2.jpg"
+  - medley2-1.jpg
+  - 2.jpeg
 featured: true
 inStock: true
-weight: "16 pcs"
-tags: ["medley", "figs", "walnuts", "handmade", "royal box"]
+weight: 16 pcs
+tags:
+  - medley
+  - figs
+  - walnuts
+  - handmade
+  - royal box
 ---
 
 Savour the luscious and exotic flavour of Afghani Figs stuffed with roasted & salted almonds and apricot & raisins stuffed Walnuts creating a harmonious medley of flavours.
