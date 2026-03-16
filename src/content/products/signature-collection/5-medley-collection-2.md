@@ -4,7 +4,7 @@ title: Medley Collection 2
 price: 1590
 images:
   - medley2-1.jpg
-  - 2.jpeg
+  - medley2-2.jpg
 featured: true
 inStock: true
 weight: 16 pcs
