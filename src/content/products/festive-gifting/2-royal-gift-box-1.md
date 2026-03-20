@@ -21,11 +21,11 @@ This Royal Box wrapped beautifully in a rich satin fabric, is perfect to bestow 
 
 Contents of the Box (16 pieces) + 500mg Kashmiri Kesar
 
-Option 1 - Premium Medjool dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries, caramalized pecans & rose petals and raw honey & elaichi infused pistachios & walnuts.
+Option 1 - Premium Medjool dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries, caramelized pecans & rose petals and raw honey & elaichi infused pistachios & walnuts.
 
 Option 2 - Chilean Walnuts stuffed with kesar, elaichi infused apricot & raisins. Afghani Figs stuffed with saffron honey roasted almonds and pistachios & rose petals.
 
-Freshly prepared using natural ingredients. Raw organic honey is used for caramelisation. No added preservatives. Handmade.
+Freshly prepared using natural ingredients. Raw organic honey is used for caramelization. No added preservatives. Handmade.
 
 ## Consumption & Storage:
 
