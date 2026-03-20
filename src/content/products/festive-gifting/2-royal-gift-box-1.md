@@ -25,24 +25,6 @@ Option 1 - Premium Medjool dates stuffed with candied orange, roasted almonds, r
 
 Option 2 - Chilean Walnuts stuffed with kesar, elaichi infused apricot & raisins. Afghani Figs stuffed with saffron honey roasted almonds and pistachios & rose petals.
 
-
-Chilean Walnuts stuffed with kesar, elaichi infused apricot & raisins.
-
-Afghani Figs stuffed with kesar infused roasted & salted almonds and pistachios & rose petals.
-
-
-
-
-
-
-Chilean Walnuts stuffed with kesar, elaichi infused apricot & raisins.
-
-Afghani Figs stuffed with kesar infused roasted & salted almonds and pistachios & rose petals.
-
-
-
-
-
 Freshly prepared using natural ingredients. Raw organic honey is used for caramelisation. No added preservatives. Handmade.
 
 ## Consumption & Storage:
