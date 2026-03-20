@@ -1,15 +1,21 @@
 ---
-title: "Royal Gift Box 1"
+category: festive-gifting
+title: Royal Gift Box 1
 price: 1950
-category: "festive-gifting"
 images:
-  - "royal-box-1-1.jpg"
-  - "royal-box-1-2.jpg"
-  - "royal-box-1-3.jpg"
+  - royal-box-1-2.jpg
+  - royal-box-1-1.jpg
+  - royal-box-1-3.jpg
 featured: true
 inStock: true
-weight: "16 pcs + 500mg Kashmiri Kesar"
-tags: ["royal box", "festive", "gift box", "dates", "premium", "kesar"]
+weight: 16 pcs + 500mg Kashmiri Kesar
+tags:
+  - royal box
+  - festive
+  - gift box
+  - dates
+  - premium
+  - kesar
 ---
 
 This Royal Box wrapped beautifully in a rich satin fabric, is perfect to bestow your loved ones with good health at every special occasion.
