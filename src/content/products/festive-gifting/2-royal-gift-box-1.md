@@ -1,6 +1,6 @@
 ---
 category: festive-gifting
-title: Royal Gift Box 1
+title: "Royal Gift Box "
 price: 1950
 images:
   - royal-box-1-2.jpg
