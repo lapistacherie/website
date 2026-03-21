@@ -5,7 +5,8 @@ price: 1950
 images:
   - royal-box-2-1.jpg
   - royal-box-2-2.jpg
-  - royal-box-2-3.jpg
+  - royal-box-2-1.jpg
+  - royal-box-1-3.jpg
 featured: true
 inStock: true
 weight: 16 pcs + 500mg Kashmiri Kesar
