@@ -17,14 +17,13 @@ tags:
   - figs
   - kesar
 ---
-
 This Royal Box wrapped beautifully in a rich satin fabric, is perfect to bestow your loved ones with good health at every special occasion.
 
 Contents of the Box (16 pcs) + 500mg Kashmiri Kesar
 
-Chilean Walnuts stuffed with kesar, elaichi infused apricot & raisins.
+Option 1 - Premium Medjool Dates stuffed with candied orange, roasted hazelnut & cranberries, caramelized pecans & rose petals and raw honey & elaichi infused pistachios & walnuts.
 
-Afghani Figs stuffed with kesar infused roasted & salted almonds and pistachios & rose petals.
+Option 2 - Chilean Walnuts stuffed with kesar & elaichi infused apricot & raisins. Afghani Figs stuffed with kesar infused caramelized roasted & salted almonds and pistachios & rose petals.
 
 Freshly prepared using natural ingredients. No added preservatives. Handmade.
 
