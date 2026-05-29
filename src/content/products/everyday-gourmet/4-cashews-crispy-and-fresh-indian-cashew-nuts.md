@@ -1,7 +1,7 @@
 ---
 category: everyday-gourmet
 title: "Cashews: Crispy and Fresh Indian Cashew Nuts"
-price: 640
+price: 690
 images:
   - cashews-1.jpg
   - cashews-2.jpg
