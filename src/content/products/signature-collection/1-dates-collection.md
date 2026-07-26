@@ -31,7 +31,7 @@ variants:
     image: dates-1.jpg
   - size: 21 pcs
     weight: 21 pcs
-    price: 1720
+    price: 1900
     inStock: true
     image: dates-2.jpg
   - size: Premium Medjool Dates
