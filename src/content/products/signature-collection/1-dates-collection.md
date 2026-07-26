@@ -39,6 +39,11 @@ variants:
     price: 1590
     inStock: true
     image: dates-4.jpg
+  - inStock: true
+    size: 5 pcs
+    weight: 5 pcs
+    price: 510
+    image: 08.jpg
 ---
 
 Dates - Often referred to as the "King of Dates", Medjool Dates are a prized fruit known for their large size and soft texture. Savour the luscious and exotic flavour of Premium Medjool Dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries, caramelized pecans & rose petals, raw honey & elaichi infused pistachios and walnuts, taking your tastebuds on a sophisticated journey of the senses.
