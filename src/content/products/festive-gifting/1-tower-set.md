@@ -1,14 +1,21 @@
 ---
-title: "Tower Set"
-price: 2590
-category: "festive-gifting"
+category: festive-gifting
+title: Tower Set
+price: 2800
 images:
-  - "tower-set-1.jpg"
-  - "tower-set-2.jpg"
+  - tower-set-1.jpg
+  - tower-set-2.jpg
 featured: true
 inStock: true
-weight: "1,250g"
-tags: ["tower set", "festive", "gift box", "dates", "figs", "walnuts", "premium"]
+weight: 1,250g
+tags:
+  - tower set
+  - festive
+  - gift box
+  - dates
+  - figs
+  - walnuts
+  - premium
 ---
 
 This extravagant Tower set is perfect for every special occasion and grandeur celebrations.
