@@ -3,8 +3,8 @@ category: signature-collection
 title: Maharaja Box
 price: 1720
 images:
-  - 1.jpeg
   - 2.jpeg
+  - 1.jpeg
 featured: true
 inStock: true
 weight: 16 pcs
