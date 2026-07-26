@@ -1,7 +1,7 @@
 ---
 category: signature-collection
 title: Date Collection
-price: 1000
+price: 510
 images:
   - dates-1.jpg
   - dates-2.jpg
