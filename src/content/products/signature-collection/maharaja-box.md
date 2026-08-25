@@ -20,7 +20,7 @@ A masterpiece of design and flavor, the Maharaja Box features intricate motifs o
 
 Contents of the Box (16 pcs)
 
-Premium Medjool Dates stuffed with flavors like Biscoff crunch, Banarasi Bliss, Coconut Pistachio Kashan and Sunkissed Orange.
+Premium Medjool Dates stuffed with flavors like Biscoff Crunch, Banarasi Bliss, Coconut Pistachio Kashan and Sunkissed Orange and Cashew Dry Mango.
 
 Freshly prepared using natural ingredients. No added preservatives. Handmade.
 
