@@ -1,7 +1,7 @@
 ---
 category: everyday-gourmet
 title: "Almonds: Premium Californian Almonds"
-price: 690
+price: 910
 images:
   - almonds-1.jpg
   - almonds-2.jpg
