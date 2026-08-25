@@ -41,7 +41,7 @@ variants:
     image: dates-3.jpg
   - size: Royal Box
     weight: 16 pcs
-    price: 1590
+    price: 1720
     inStock: true
     image: dates-4.jpg
 ---
