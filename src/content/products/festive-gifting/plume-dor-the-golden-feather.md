@@ -20,7 +20,7 @@ Inspired by the timeless grace of the peacock, the Plume D'Or is a celebration o
 
 Contents of the Box - A hand-picked assortment of our finest stuffed Medjool dates and flavored nuts.
 
-Option 1 - Box of Stuffed Medjool dates (5pcs) and 2 premium acrylic boxes of 175 gm of flavored nuts of your choice.
+Option 1 - Box of Stuffed Medjool dates (5pcs), 2 premium acrylic boxes of 175 gm of flavored nuts of your choice and 2 mini bottles of Kesar and Silver Elaichi.
 
 Option 2 - 2 jars of approximately 100 gm of dry fruits of your choice, 2 premium acrylic boxes of 175 gm of flavored nuts of your choice and 2 mini bottles of Kesar and Silver Elaichi.
 
