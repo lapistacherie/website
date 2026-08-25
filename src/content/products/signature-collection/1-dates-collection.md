@@ -9,6 +9,7 @@ images:
   - dates-4.jpg
   - simple-box.jpg
   - medley2-2.jpg
+  - 2.jpeg
 featured: true
 inStock: true
 weight: 10 pcs
@@ -44,9 +45,13 @@ variants:
     price: 1720
     inStock: true
     image: dates-4.jpg
+  - inStock: true
+    size: Maharaja Box
+    weight: 16 pcs
+    price: 1720
+    image: 2.jpeg
 ---
-
-Dates - Often referred to as the "King of Dates", Medjool Dates are a prized fruit known for their large size and soft texture. Savour the luscious and exotic flavour of Premium Medjool Dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries, caramelized pecans & rose petals, raw honey & elaichi infused pistachios and walnuts, taking your tastebuds on a sophisticated journey of the senses.
+Dates - Often referred to as the "King of Dates", Medjool Dates are a prized fruit known for their large size and soft texture. Savour the luscious and exotic flavour of Premium Medjool Dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries, caramelized pecans & rose petals, raw honey & elaichi infused pistachios and walnuts, biscoff crunch, cashew dry mango taking your tastebuds on a sophisticated journey of the senses.
 
 Freshly prepared using natural ingredients. No added preservatives. Raw organic honey used. Handmade.
 
@@ -58,7 +63,7 @@ Store in a cool, dry place away from sunlight. Consume fresh within a month.
 
 ## Product Dimensions:
 
-- Small Box – 10 pcs – 7.7" × 5" × 1.8"
-- Big Box – 21 pcs - 9" × 6.8" × 1.8"
-- Plain Dates Box - 24 pcs - 9" × 6.8" × 1.8"
-- Royal Box - 16 pcs - 9.5" × 9.5" × 1.75"
+* Small Box – 10 pcs – 7.7" × 5" × 1.8"
+* Big Box – 21 pcs - 9" × 6.8" × 1.8"
+* Plain Dates Box - 24 pcs - 9" × 6.8" × 1.8"
+* Royal Box - 16 pcs - 9.5" × 9.5" × 1.75"
