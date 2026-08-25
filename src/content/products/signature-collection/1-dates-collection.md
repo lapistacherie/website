@@ -67,3 +67,4 @@ Store in a cool, dry place away from sunlight. Consume fresh within a month.
 * Big Box – 21 pcs - 9" × 6.8" × 1.8"
 * Plain Dates Box - 24 pcs - 9" × 6.8" × 1.8"
 * Royal Box - 16 pcs - 9.5" × 9.5" × 1.75"
+* Maharaja Box - 16 pcs - 9.5" x 9.5" x 1.75"
