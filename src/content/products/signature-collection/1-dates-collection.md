@@ -8,7 +8,7 @@ images:
   - dates-3.jpg
   - dates-4.jpg
   - simple-box.jpg
-  - medley2-2.jpg
+  - 1.jpeg
   - 2.jpeg
 featured: true
 inStock: true
