@@ -1,7 +1,7 @@
 ---
 category: everyday-gourmet
 title: "Mamra Almonds: Premium Mamra Almonds"
-price: 2170
+price: 2220
 images:
   - mamra-almonds-1.jpg
   - mamra-almonds-2.jpg
