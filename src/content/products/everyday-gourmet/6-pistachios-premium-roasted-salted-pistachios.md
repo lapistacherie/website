@@ -1,20 +1,25 @@
 ---
+category: everyday-gourmet
 title: "Pistachios: Premium Roasted & Salted Pistachios"
-price: 420
-category: "everyday-gourmet"
+price: 600
 images:
-  - "pistachios-1.jpg"
-  - "pistachios-2.jpg"
+  - pistachios-1.jpg
+  - pistachios-2.jpg
 featured: true
 inStock: true
-weight: "250g"
-tags: ["pistachios", "roasted", "salted", "middle eastern", "antioxidants"]
+weight: 250g
+tags:
+  - pistachios
+  - roasted
+  - salted
+  - middle eastern
+  - antioxidants
 variants:
-  - size: "250 gms"
-    weight: "250g"
+  - size: 250 gms
+    weight: 250g
     price: 420
     inStock: true
-    image: "pistachios-1.jpg"
+    image: pistachios-1.jpg
 ---
 
 These Middle Eastern nuts are not only delicious but also highly nutritious. They are a good source of protein, healthy fats, fibre and various vitamins and minerals. Pistachios are particularly rich in antioxidants.
