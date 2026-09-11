@@ -1,26 +1,30 @@
 ---
-title: "Cranberries"
+category: jar-collection
+title: Cranberries
 price: 190
-category: "jar-collection"
 images:
-  - "cranberries-1.jpg"
-  - "cranberries-2.jpg"
-  - "cranberries-3.jpg"
+  - cranberries-1.jpg
+  - cranberries-2.jpg
+  - cranberries-3.jpg
 featured: false
 inStock: true
-weight: "100g"
-tags: ["cranberries", "dried fruit", "antioxidants", "vitamin c"]
+weight: 100g
+tags:
+  - cranberries
+  - dried fruit
+  - antioxidants
+  - vitamin c
 variants:
-  - size: "100 gms"
-    weight: "100g"
+  - size: 100 gms
+    weight: 100g
     price: 190
     inStock: true
-    image: "cranberries-1.jpg"
-  - size: "200 gms"
-    weight: "200g"
-    price: 300
+    image: cranberries-1.jpg
+  - size: 200 gms
+    weight: 200g
+    price: 370
     inStock: true
-    image: "cranberries-2.jpg"
+    image: cranberries-2.jpg
 ---
 
 Jar contains Dried Whole Cranberries.
