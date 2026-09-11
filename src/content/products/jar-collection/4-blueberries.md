@@ -1,7 +1,7 @@
 ---
 category: jar-collection
 title: Blueberries
-price: 290
+price: 280
 images:
   - blueberries-1.jpg
   - blueberries-2.jpg
