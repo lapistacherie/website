@@ -1,7 +1,7 @@
 ---
 category: festive-gifting
 title: Tower Set
-price: 2800
+price: 3030
 images:
   - tower-set-1.jpg
   - tower-set-2.jpg
