@@ -1,26 +1,31 @@
 ---
-title: "Blueberries"
+category: jar-collection
+title: Blueberries
 price: 290
-category: "jar-collection"
 images:
-  - "blueberries-1.jpg"
-  - "blueberries-2.jpg"
-  - "blueberries-3.jpg"
+  - blueberries-1.jpg
+  - blueberries-2.jpg
+  - blueberries-3.jpg
 featured: true
 inStock: true
-weight: "100g"
-tags: ["blueberries", "dried fruit", "antioxidants", "low calorie", "high fibre"]
+weight: 100g
+tags:
+  - blueberries
+  - dried fruit
+  - antioxidants
+  - low calorie
+  - high fibre
 variants:
-  - size: "100 gms"
-    weight: "100g"
-    price: 290
+  - size: 100 gms
+    weight: 100g
+    price: 280
     inStock: true
-    image: "blueberries-1.jpg"
-  - size: "200 gms"
-    weight: "200g"
-    price: 510
+    image: blueberries-1.jpg
+  - size: 200 gms
+    weight: 200g
+    price: 550
     inStock: true
-    image: "blueberries-2.jpg"
+    image: blueberries-2.jpg
 ---
 
 Jar contains Dried Blueberries.
