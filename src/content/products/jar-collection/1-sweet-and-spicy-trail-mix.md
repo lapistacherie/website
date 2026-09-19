@@ -1,7 +1,7 @@
 ---
 category: jar-collection
 title: Sweet and Spicy Trail Mix
-price: 280
+price: 320
 images:
   - sweet-spicy-trail-mix-1.jpg
   - sweet-spicy-trail-mix-2.jpg
@@ -18,12 +18,12 @@ tags:
 variants:
   - size: 90 gms
     weight: 90g
-    price: 280
+    price: 320
     inStock: true
     image: sweet-spicy-trail-mix-1.jpg
   - size: 190 gms
     weight: 190g
-    price: 550
+    price: 600
     inStock: true
     image: sweet-spicy-trail-mix-2.jpg
 ---
