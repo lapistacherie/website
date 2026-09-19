@@ -1,26 +1,31 @@
 ---
-title: "Cheese & Chilli Almond Cashew Mix"
+category: jar-collection
+title: Cheese & Chilli Almond Cashew Mix
 price: 280
-category: "jar-collection"
 images:
-  - "cheese-chilli-mix-1.jpg"
-  - "cheese-chilli-mix-2.jpg"
-  - "cheese-chilli-mix-3.jpg"
+  - cheese-chilli-mix-1.jpg
+  - cheese-chilli-mix-2.jpg
+  - cheese-chilli-mix-3.jpg
 featured: true
 inStock: true
-weight: "90g"
-tags: ["cheese", "chilli", "almonds", "cashews", "party snack"]
+weight: 90g
+tags:
+  - cheese
+  - chilli
+  - almonds
+  - cashews
+  - party snack
 variants:
-  - size: "90 gms"
-    weight: "90g"
-    price: 280
+  - size: 90 gms
+    weight: 90g
+    price: 320
     inStock: true
-    image: "cheese-chilli-mix-1.jpg"
-  - size: "190 gms"
-    weight: "190g"
-    price: 550
+    image: cheese-chilli-mix-1.jpg
+  - size: 190 gms
+    weight: 190g
+    price: 600
     inStock: true
-    image: "cheese-chilli-mix-2.jpg"
+    image: cheese-chilli-mix-2.jpg
 ---
 
 Jar contains Californian Almonds and Indian Cashews, coated with powdered cheddar cheese and chilli powder.
