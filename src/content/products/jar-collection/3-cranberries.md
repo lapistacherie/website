@@ -17,12 +17,12 @@ tags:
 variants:
   - size: 100 gms
     weight: 100g
-    price: 170
+    price: 190
     inStock: true
     image: cranberries-1.jpg
   - size: 200 gms
     weight: 200g
-    price: 280
+    price: 320
     inStock: true
     image: cranberries-2.jpg
 ---
