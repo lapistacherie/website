@@ -48,7 +48,7 @@ variants:
   - inStock: true
     size: Maharaja Box
     weight: 16 pcs
-    price: 1720
+    price: 1810
     image: 2.jpeg
 ---
 Dates - Often referred to as the "King of Dates", Medjool Dates are a prized fruit known for their large size and soft texture. Savour the luscious and exotic flavour of Premium Medjool Dates stuffed with candied orange, roasted almonds, roasted hazelnuts & cranberries, caramelized pecans & rose petals, raw honey & elaichi infused pistachios and walnuts, biscoff crunch, cashew dry mango taking your tastebuds on a sophisticated journey of the senses.
