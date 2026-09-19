@@ -1,7 +1,7 @@
 ---
 category: signature-collection
 title: Maharaja Box
-price: 1720
+price: 1810
 images:
   - 2.jpeg
   - 1.jpeg
