@@ -22,7 +22,7 @@ variants:
     image: mix-berries-1.jpg
   - size: 200 gms
     weight: 200g
-    price: 460
+    price: 420
     inStock: true
     image: mix-berries-2.jpg
 ---
