@@ -1,7 +1,7 @@
 ---
 category: everyday-gourmet
 title: Mix Trail
-price: 550
+price: 510
 images:
   - mix-trail-1.jpg
   - mix-trail-2.jpg
