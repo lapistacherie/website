@@ -21,8 +21,7 @@ variants:
     inStock: true
     image: mix-trail-1.jpg
 ---
-
-A scrumptious blend of finely roasted almonds and cashews, mixed with walnuts, cranberries, blueberries, pistachios and dried dates which will take your taste buds on a palatable food trail like never before.
+A scrumptious blend of finely roasted almonds and cashews, mixed with walnuts, cranberries, blueberries and pistachios which will take your taste buds on a palatable food trail like never before.
 
 Mix Trail provides a convenient and handy source of energy. Additionally, it is packed with essential nutrients and is a quick energy booster for people on the go.
 
