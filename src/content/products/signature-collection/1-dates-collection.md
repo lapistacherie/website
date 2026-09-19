@@ -27,12 +27,12 @@ variants:
     image: 08.jpg
   - size: 10 pcs
     weight: 10 pcs
-    price: 1000
+    price: 1050
     inStock: true
     image: dates-1.jpg
   - size: 21 pcs
     weight: 21 pcs
-    price: 1900
+    price: 2040
     inStock: true
     image: dates-2.jpg
   - size: Premium Medjool Dates
@@ -42,7 +42,7 @@ variants:
     image: dates-3.jpg
   - size: Royal Box
     weight: 16 pcs
-    price: 1720
+    price: 1810
     inStock: true
     image: dates-4.jpg
   - inStock: true
