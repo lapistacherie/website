@@ -1,7 +1,7 @@
 ---
 category: jar-collection
 title: Cheese & Chilli Almond Cashew Mix
-price: 280
+price: 320
 images:
   - cheese-chilli-mix-1.jpg
   - cheese-chilli-mix-2.jpg
