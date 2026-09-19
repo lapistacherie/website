@@ -1,25 +1,30 @@
 ---
-title: "Fig Collection"
+category: signature-collection
+title: Fig Collection
 price: 870
-category: "signature-collection"
 images:
-  - "figs-1.jpg"
-  - "figs-2.jpg"
+  - figs-1.jpg
+  - figs-2.jpg
 featured: true
 inStock: true
-weight: "8 pcs"
-tags: ["figs", "afghani", "stuffed figs", "handmade", "premium"]
+weight: 8 pcs
+tags:
+  - figs
+  - afghani
+  - stuffed figs
+  - handmade
+  - premium
 variants:
-  - size: "8 pcs"
-    weight: "8 pcs"
+  - size: 8 pcs
+    weight: 8 pcs
     price: 870
     inStock: true
-    image: "figs-1.jpg"
-  - size: "12 pcs"
-    weight: "12 pcs"
-    price: 1270
+    image: figs-1.jpg
+  - size: 12 pcs
+    weight: 12 pcs
+    price: 1310
     inStock: true
-    image: "figs-2.jpg"
+    image: figs-2.jpg
 ---
 
 Figs - Savour the luscious and exotic flavour of Afghani Figs stuffed with kesar infused roasted & salted almonds and pistachios & rose petals, taking your tastebuds on a sophisticated journey of the senses.
