@@ -23,7 +23,7 @@ variants:
     image: blueberries-1.jpg
   - size: 200 gms
     weight: 200g
-    price: 550
+    price: 510
     inStock: true
     image: blueberries-2.jpg
 ---
