@@ -22,7 +22,7 @@ variants:
     image: walnuts-1.jpg
   - size: 12 pcs
     weight: 12 pcs
-    price: 1310
+    price: 1320
     inStock: true
     image: walnuts-2.jpg
 ---
