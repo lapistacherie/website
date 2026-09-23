@@ -18,12 +18,12 @@ tags:
 variants:
   - size: 8 pcs
     weight: 8 pcs
-    price: 870
+    price: 910
     inStock: true
     image: medley-1.jpg
   - size: 12 pcs
     weight: 12 pcs
-    price: 1320
+    price: 1360
     inStock: true
     image: medley-2.jpg
 ---
