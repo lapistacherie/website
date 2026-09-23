@@ -1,7 +1,7 @@
 ---
 category: signature-collection
 title: Medley Collection 1
-price: 870
+price: 910
 images:
   - medley-1.jpg
   - medley-2.jpg
